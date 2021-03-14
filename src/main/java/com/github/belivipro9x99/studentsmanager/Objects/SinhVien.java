@@ -11,10 +11,12 @@ public class SinhVien extends NhanSu {
     public ArrayList<KetQua> ketQua = new ArrayList<KetQua>();
     public int khoa;
 
-    public SinhVien() {}
+    public SinhVien(String maSV) {
+        this.maSV = maSV;
+    }
 
     public SinhVien(String ten, String maSV) {
-        this.ten = ten;
+        super(ten);
         this.maSV = maSV;
     }
 
@@ -35,11 +37,7 @@ public class SinhVien extends NhanSu {
         String queQuan,
         int khoa
     ) {
-        this.ten = ten;
-        this.ngaySinh = ngaySinh;
-        this.gioiTinh = gioiTinh;
-        this.soDienThoai = soDienThoai;
-        this.email = email;
+        super(ten, ngaySinh, gioiTinh, soDienThoai, email);
         this.maSV = maSV;
         this.queQuan = queQuan;
         this.khoa = khoa;

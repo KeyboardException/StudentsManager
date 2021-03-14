@@ -9,9 +9,27 @@ public class GiangVien extends NhanSu {
     public ArrayList<LopHoc> lophoc = new ArrayList<LopHoc>();
     public int trinhDoHocVan = 0;
 
-    public GiangVien() {}
+    public GiangVien(String ten, String maGV) {
+        super(ten);
+        this.maGV = maGV;
+    }
 
-    public GiangVien(String maGV, int trinhDoHocVan) {
+    public GiangVien(String ten, String maGV, int trinhDoHocVan) {
+        super(ten);
+        this.maGV = maGV;
+        this.trinhDoHocVan = trinhDoHocVan;
+    }
+
+    public GiangVien(
+        String ten,
+		NgayThang ngaySinh,
+		Boolean gioiTinh,
+		String soDienThoai,
+		String email,
+        String maGV,
+        int trinhDoHocVan
+    ) {
+        super(ten, ngaySinh, gioiTinh, soDienThoai, email);
         this.maGV = maGV;
         this.trinhDoHocVan = trinhDoHocVan;
     }
