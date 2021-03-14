@@ -7,8 +7,8 @@ public class SinhVien extends NhanSu {
     
     public String maSV;
     public String queQuan;
-    public ArrayList<LopHoc> lophoc;
-    public ArrayList<KetQua> ketqua;
+    public ArrayList<LopHoc> lopHoc = new ArrayList<LopHoc>();
+    public ArrayList<KetQua> ketQua = new ArrayList<KetQua>();
     public int khoa;
 
     public SinhVien() {}

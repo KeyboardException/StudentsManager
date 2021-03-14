@@ -5,26 +5,26 @@ import java.io.Serializable;
 public class KetQua implements Serializable {
     private static final long serialVersionUID = 665498274625279382L;
 
+    public String maLop;
     public float diemCC, diemDK, diemHK;
     
-    public KetQua() {
-        diemCC = 0;
-        diemDK = 0;
-        diemHK = 0;
+    public KetQua(String maLop) {
+        this.maLop = maLop;
     }
 
-    public KetQua(float diemCC,float diemDK,float diemHK) {
+    public KetQua(String maLop, float diemCC, float diemDK, float diemHK) {
+        this.maLop = maLop;
         this.diemCC = diemCC;
         this.diemDK = diemDK;
         this.diemHK = diemHK;
     }
      
-    public float diemTB10() {
+    public float diemHS10() {
         return 0.1f * diemCC + 0.2f * diemDK + 0.7f * diemHK;
     }
 
-    public float diemTB4() {
-        float d = diemTB10();
+    public float diemHS4() {
+        float d = diemHS10();
 
         if (d >= 8.5)
             return 4.0f;
@@ -45,7 +45,7 @@ public class KetQua implements Serializable {
     }
 
     public String xepLoai() {
-        float d = diemTB10();
+        float d = diemHS10();
 
         if (d >= 9.5)
             return "A+";
