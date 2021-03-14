@@ -24,6 +24,44 @@ public class KetQua implements Serializable {
     }
 
     public float diemTB4() {
-        return 0;
+        float d = diemTB10();
+        if(d >= 8.5)
+            {return 4.0f;}
+        else if(d >= 8.0)
+            {return 3.5f;}
+        else if(d >= 7.0)
+            {return 3.0;}
+        else if(d >= 6.5)
+            {return 2.5;}
+        else if(d >= 5.5)
+            {return 2.0;}
+        else if(d >= 5.0)
+            {return 1.5;}
+        else if (d >= 4.0)
+            {return 1.0;}
+        else if(d <= 4.0)
+        {return 0;}
+    }
+    public String xepLoai() 
+    {
+        float d = diemTB10();
+        if(d >= 9.5)
+            {return "A+";}
+        else if(d >= 8.5)
+            {return "A";}
+        else if(d >= 8.0)
+            {return "B+";}
+        else if(d >= 7.0)
+            {return "B";}
+        else if(d >= 6.5)
+            {return "C+";}
+        else if(d >= 5.5)
+            {return "C";}
+        else if(d >= 5.0)
+            {return "D+";}
+        else if (d >= 4.0)
+            {return "D";}
+
+        return "F";
     }
 }
