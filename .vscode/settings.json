@@ -1,0 +1,4 @@
+{
+	"java.debug.settings.showStaticVariables": true,
+	"java.debug.settings.hotCodeReplace": "auto"
+}
