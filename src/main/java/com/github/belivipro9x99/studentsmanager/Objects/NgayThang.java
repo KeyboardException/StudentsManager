@@ -1,10 +1,13 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class NgayThang {
+public class NgayThang implements Serializable {
+	private static final long serialVersionUID = -2779251502539110801L;
+	
 	public long timestamp;
 	public Date date;
 

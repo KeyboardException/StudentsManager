@@ -1,6 +1,10 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
-public class NhanSu {
+import java.io.Serializable;
+
+public class NhanSu implements Serializable {
+	private static final long serialVersionUID = 7093552118543864508L;
+	
 	public String ten;
 	public NgayThang ngaySinh;
 	public Boolean gioiTinh = true;

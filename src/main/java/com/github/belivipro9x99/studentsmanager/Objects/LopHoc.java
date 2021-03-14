@@ -1,6 +1,10 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
-public class LopHoc {
+import java.io.Serializable;
+
+public class LopHoc implements Serializable {
+    private static final long serialVersionUID = 7426763019335067858L;
+    
     String maLop;
     String monHoc;
     int soTinChi;

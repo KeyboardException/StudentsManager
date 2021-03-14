@@ -3,6 +3,8 @@ package com.github.belivipro9x99.studentsmanager.Objects;
 import java.util.ArrayList;
 
 public class SinhVien extends NhanSu {
+    private static final long serialVersionUID = 7932796623774919940L;
+    
     public String maSV, queQuan;
     public ArrayList<LopHoc> lophoc;
     public ArrayList<KetQua> ketqua;

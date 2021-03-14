@@ -1,6 +1,10 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
-public class PhongHoc {
+import java.io.Serializable;
+
+public class PhongHoc implements Serializable {
+    private static final long serialVersionUID = -2736920632304171816L;
+    
     String soPhong;
     LopHoc[] lopHoc;
 
