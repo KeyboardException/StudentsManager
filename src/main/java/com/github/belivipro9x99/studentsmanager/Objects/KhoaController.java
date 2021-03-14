@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class KhoaWrapper {
+public class KhoaController {
 	public static String savePath = "data.dat";
 	public static Khoa khoa;
 
-	public KhoaWrapper() throws FileNotFoundException, IOException, ClassNotFoundException {
+	public KhoaController() throws FileNotFoundException, IOException, ClassNotFoundException {
 		File saveFile = new File(savePath);
 
 		if (!saveFile.exists()) {
