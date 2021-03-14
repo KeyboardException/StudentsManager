@@ -21,10 +21,6 @@ public class SinhVien extends NhanSu {
 
     @Override
     public String toString() {
-        return "SinhVien{" +
-        "maSV=" + maSV +
-        "queQuan=" + queQuan +
-        "khoa=" + khoa +
-        '}';
+        return String.format("SinhVien(%s)[maSV=%s]", super.toString(), maSV);
     }
 }

@@ -19,16 +19,13 @@ public class GiangVien extends NhanSu {
             "Thạc Sĩ",
             "Tiến Sĩ",
             "Phó Giáo Sư",
-            "Giáo SƯ",
+            "Giáo Sư",
         }[trinhDoHocVan];
     }
     
     @Override
     public String toString() {
-        return "GiangVien{" +
-                "maGV=" + maGV +
-                "trinhDoHocVan=" + trinhDoHocVan +
-                '}';
+        return String.format("GiangVien(%s)[maGV=%s]", super.toString(), maGV);
     }
 }
 

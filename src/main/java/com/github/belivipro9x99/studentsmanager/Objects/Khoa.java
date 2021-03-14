@@ -1,6 +1,10 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
-public class Khoa {
+import java.io.Serializable;
+
+public class Khoa implements Serializable {
+	private static final long serialVersionUID = 6541209675058522106L;
+
 	public String ten = "Trường Đại Học Mở Hà Nội";
 	public String diaChi = "69 Định Công, Thanh Xuân, Hà Nội";
 	public NhanSu truongKhoa;

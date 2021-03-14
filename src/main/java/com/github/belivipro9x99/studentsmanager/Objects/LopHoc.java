@@ -23,4 +23,3 @@ public class LopHoc {
         return String.format("LopHoc[maLop=%s]", maLop);
     }
 }
-
