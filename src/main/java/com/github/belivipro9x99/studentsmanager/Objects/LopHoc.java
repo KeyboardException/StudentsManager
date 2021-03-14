@@ -11,7 +11,7 @@ public class LopHoc {
     int trangThai;
 
     public String getTrangThai(){
-        return new String[]{
+        return new String[] {
             "Học",
             "Học online",
             "Nghỉ"
@@ -20,7 +20,7 @@ public class LopHoc {
 
     @Override
     public String toString(){
-        return String.format("LopHoc[maLop=%s]");
+        return String.format("LopHoc[maLop=%s]", maLop);
     }
 }
 
