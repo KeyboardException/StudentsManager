@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import com.github.belivipro9x99.studentsmanager.Exception.GiangVienExistException;
 import com.github.belivipro9x99.studentsmanager.Exception.SinhVienExistException;
 
 public class KhoaController {
@@ -37,6 +38,23 @@ public class KhoaController {
 	public void removeSinhVien(SinhVien sinhVien) {
 		khoa.sinhVien.remove(sinhVien);
 	}
+	
+	public void addGiangVien(GiangVien giangVien) throws GiangVienExistException {
+		for (GiangVien item: getGiangVienList())
+			if (item.maGV.equals(giangVien.maGV))
+				throw new GiangVienExistException(item);
+
+		khoa.giangVien.add(giangVien);
+	}
+
+	public ArrayList<GiangVien> getGiangVienList() {
+		return khoa.giangVien;
+	}
+
+	public void removeGiangVien(GiangVien giangVien) {
+		khoa.giangVien.remove(giangVien);
+	}
+
 
 	/**
 	 * Write {@code Khoa} into file input stream
