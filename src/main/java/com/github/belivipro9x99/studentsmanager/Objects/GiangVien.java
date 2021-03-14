@@ -5,21 +5,16 @@ import java.util.ArrayList;
 public class GiangVien extends NhanSu {
     public String maGV;
     public ArrayList<LopHoc> lophoc;
-    public int trinhDoHocVan;
+    public int trinhDoHocVan = 0;
 
-    public GiangVien(){
-        maGV = "";
-        trinhDoHocVan = 0;
-    }
+    public GiangVien() {}
 
-    public GiangVien( String maGV, int trinhDoHocVan ){
+    public GiangVien(String maGV, int trinhDoHocVan) {
         this.maGV = maGV;
         this.trinhDoHocVan = trinhDoHocVan;
     }
-    public String getmaGV(){
-        return maGV;
-    }
-    public String gettrinhDoHocVan(){
+
+    public String gettrinhDoHocVan() {
         return new String[] {
             "Thạc Sĩ",
             "Tiến Sĩ",
@@ -27,7 +22,8 @@ public class GiangVien extends NhanSu {
             "Giáo SƯ",
         }[trinhDoHocVan];
     }
-     @Override
+    
+    @Override
     public String toString() {
         return "GiangVien{" +
                 "maGV=" + maGV +

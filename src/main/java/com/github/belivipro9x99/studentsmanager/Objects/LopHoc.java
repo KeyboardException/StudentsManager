@@ -9,17 +9,18 @@ public class LopHoc {
     SinhVien[] sinhVien;
     GiangVien giangVien;
     int trangThai;
-public String getTrangThai(){
-    return new String[]{
-        "Học",
-        "Học online",
-        "Nghỉ"
-    }[trangThai];
-}
 
-@Override
-public String toString(){
-    return String.format("LopHoc[maLop=%s]");
-}
+    public String getTrangThai(){
+        return new String[]{
+            "Học",
+            "Học online",
+            "Nghỉ"
+        }[trangThai];
+    }
+
+    @Override
+    public String toString(){
+        return String.format("LopHoc[maLop=%s]");
+    }
 }
 
