@@ -1,6 +1,7 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Khoa implements Serializable {
 	private static final long serialVersionUID = 6541209675058522106L;
@@ -10,9 +11,11 @@ public class Khoa implements Serializable {
 	public NhanSu truongKhoa;
 	public NhanSu phoKhoa;
 
-	public GiangVien[] giangVien;
-	public SinhVien[] sinhVien;
-	public PhongHoc[] phongHoc;
+	public ArrayList<GiangVien> giangVien = new ArrayList<GiangVien>();
+	public ArrayList<SinhVien> sinhVien = new ArrayList<SinhVien>();
+	public ArrayList<PhongHoc> phongHoc = new ArrayList<PhongHoc>();
+
+	public Khoa() {}
 
 	@Override
 	public String toString() {

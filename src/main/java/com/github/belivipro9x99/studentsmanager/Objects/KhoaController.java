@@ -7,20 +7,35 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
+import com.github.belivipro9x99.studentsmanager.Exception.SinhVienExistException;
 
 public class KhoaController {
-	public static String savePath = "data.dat";
-	public static Khoa khoa;
+	public static Khoa khoa = new Khoa();
 
-	public KhoaController() throws FileNotFoundException, IOException, ClassNotFoundException {
-		File saveFile = new File(savePath);
-
-		if (!saveFile.exists()) {
+	public KhoaController(File dataFile) throws FileNotFoundException, IOException, ClassNotFoundException {
+		if (!dataFile.exists()) {
 			khoa = new Khoa();
-			this.save(saveFile);
-		} else {
-			this.load(saveFile);
-		}
+			this.save(dataFile);
+		} else
+			this.load(dataFile);
+	}
+
+	public void addSinhVien(SinhVien sinhVien) throws SinhVienExistException {
+		for (SinhVien item: getSinhVienList())
+			if (item.maSV.equals(sinhVien.maSV))
+				throw new SinhVienExistException(item);
+
+		khoa.sinhVien.add(sinhVien);
+	}
+
+	public ArrayList<SinhVien> getSinhVienList() {
+		return khoa.sinhVien;
+	}
+
+	public void removeSinhVien(SinhVien sinhVien) {
+		khoa.sinhVien.remove(sinhVien);
 	}
 
 	/**

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class GiangVien extends NhanSu {
     private static final long serialVersionUID = 6492855057322778620L;
-    
+
     public String maGV;
-    public ArrayList<LopHoc> lophoc;
+    public ArrayList<LopHoc> lophoc = new ArrayList<LopHoc>();
     public int trinhDoHocVan = 0;
 
     public GiangVien() {}
