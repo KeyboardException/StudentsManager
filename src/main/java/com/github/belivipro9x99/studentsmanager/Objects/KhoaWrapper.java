@@ -12,12 +12,14 @@ public class KhoaWrapper {
 	public static String savePath = "data.dat";
 	public static Khoa khoa;
 
-	public KhoaWrapper() throws FileNotFoundException, IOException {
+	public KhoaWrapper() throws FileNotFoundException, IOException, ClassNotFoundException {
 		File saveFile = new File(savePath);
 
 		if (!saveFile.exists()) {
 			khoa = new Khoa();
 			this.save(saveFile);
+		} else {
+			this.load(saveFile);
 		}
 	}
 
@@ -28,6 +30,7 @@ public class KhoaWrapper {
 	 * @throws IOException
 	 */
 	public void save(File file) throws FileNotFoundException, IOException {
+		System.out.println("Saving files to " + file.getAbsolutePath());
 		FileOutputStream fileOut = new FileOutputStream(file);
 		ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
 
@@ -47,6 +50,7 @@ public class KhoaWrapper {
 	 * @throws ClassNotFoundException
 	 */
 	public void load(File file) throws FileNotFoundException, IOException, ClassNotFoundException {
+		System.out.println("Loading data from " + file.getAbsolutePath());
 		FileInputStream fileIn = new FileInputStream(file);
 		ObjectInputStream objIn = new ObjectInputStream(fileIn);
 
