@@ -47,7 +47,7 @@ public class SinhVien extends NhanSu {
         return maSV;
     }
     
-    public String getQuequan() {
+    public String getQueQuan() {
         return queQuan;
     }
 
