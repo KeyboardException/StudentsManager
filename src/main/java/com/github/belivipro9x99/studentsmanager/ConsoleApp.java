@@ -7,21 +7,18 @@ import com.github.belivipro9x99.studentsmanager.Objects.KhoaController;
 import com.github.belivipro9x99.studentsmanager.Objects.SinhVien;
 
 public class ConsoleApp {
-	public static KhoaController khoaController;
 
 	public static void main(String[] args) throws Exception {
-		File saveFile = new File("data.dat");
-		khoaController = new KhoaController(saveFile);
+		new KhoaController();
 
-		//khoaController.addSinhVien(new SinhVien("Vu Tuan Dat", "20A234524141"));
-		khoaController.addGiangVien(new GiangVien("Nguyễn Đắc Phương Thảo", "A212412353225"));
+		KhoaController.addSinhVien(new SinhVien("Vu Tuan Dat", "20A234524141"));
 
-		for (SinhVien sinhVien: khoaController.getSinhVienList())
+		for (SinhVien sinhVien: KhoaController.getSinhVienList())
 			System.out.println(sinhVien);
 
-		for (GiangVien giangVien: khoaController.getGiangVienList())
+		for (GiangVien giangVien: KhoaController.getGiangVienList())
 			System.out.println(giangVien);
 
-		khoaController.save(saveFile);
+		KhoaController.save();
 	}
 }

@@ -9,5 +9,14 @@
 
 #mainTitle {
 	-fx-font-size: 26px;
-	-fx-font-weight: 300;
+	-fx-font-weight: 900;
+}
+
+.header {
+	-fx-padding: 10px;
+	-fx-background-color: rgb(240, 240, 240);
+}
+
+TabPane {
+	-fx-margin: 0;
 }

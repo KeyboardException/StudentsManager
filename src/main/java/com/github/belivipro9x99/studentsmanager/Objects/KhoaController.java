@@ -14,16 +14,18 @@ import com.github.belivipro9x99.studentsmanager.Exception.SinhVienExistException
 
 public class KhoaController {
 	public static Khoa khoa = new Khoa();
+	public static String filePath = "data.dat";
+	public static File dataFile = new File(filePath);
 
-	public KhoaController(File dataFile) throws FileNotFoundException, IOException, ClassNotFoundException {
+	public KhoaController() throws FileNotFoundException, IOException, ClassNotFoundException {
 		if (!dataFile.exists()) {
 			khoa = new Khoa();
-			this.save(dataFile);
+			this.save();
 		} else
-			this.load(dataFile);
+			this.load();
 	}
 
-	public void addSinhVien(SinhVien sinhVien) throws SinhVienExistException {
+	public static void addSinhVien(SinhVien sinhVien) throws SinhVienExistException {
 		for (SinhVien item: getSinhVienList())
 			if (item.maSV.equals(sinhVien.maSV))
 				throw new SinhVienExistException(item);
@@ -31,15 +33,15 @@ public class KhoaController {
 		khoa.sinhVien.add(sinhVien);
 	}
 
-	public ArrayList<SinhVien> getSinhVienList() {
+	public static ArrayList<SinhVien> getSinhVienList() {
 		return khoa.sinhVien;
 	}
 
-	public void removeSinhVien(SinhVien sinhVien) {
+	public static void removeSinhVien(SinhVien sinhVien) {
 		khoa.sinhVien.remove(sinhVien);
 	}
 	
-	public void addGiangVien(GiangVien giangVien) throws GiangVienExistException {
+	public static void addGiangVien(GiangVien giangVien) throws GiangVienExistException {
 		for (GiangVien item: getGiangVienList())
 			if (item.maGV.equals(giangVien.maGV))
 				throw new GiangVienExistException(item);
@@ -47,11 +49,11 @@ public class KhoaController {
 		khoa.giangVien.add(giangVien);
 	}
 
-	public ArrayList<GiangVien> getGiangVienList() {
+	public static ArrayList<GiangVien> getGiangVienList() {
 		return khoa.giangVien;
 	}
 
-	public void removeGiangVien(GiangVien giangVien) {
+	public static void removeGiangVien(GiangVien giangVien) {
 		khoa.giangVien.remove(giangVien);
 	}
 
@@ -62,9 +64,9 @@ public class KhoaController {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public void save(File file) throws FileNotFoundException, IOException {
-		System.out.println("Saving files to " + file.getAbsolutePath());
-		FileOutputStream fileOut = new FileOutputStream(file);
+	public static void save() throws FileNotFoundException, IOException {
+		System.out.println("Saving files to " + dataFile.getAbsolutePath());
+		FileOutputStream fileOut = new FileOutputStream(dataFile);
 		ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
 
 		objOut.flush();
@@ -82,9 +84,9 @@ public class KhoaController {
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */
-	public void load(File file) throws FileNotFoundException, IOException, ClassNotFoundException {
-		System.out.println("Loading data from " + file.getAbsolutePath());
-		FileInputStream fileIn = new FileInputStream(file);
+	public static void load() throws FileNotFoundException, IOException, ClassNotFoundException {
+		System.out.println("Loading data from " + dataFile.getAbsolutePath());
+		FileInputStream fileIn = new FileInputStream(dataFile);
 		ObjectInputStream objIn = new ObjectInputStream(fileIn);
 
 		khoa = (Khoa) objIn.readObject();

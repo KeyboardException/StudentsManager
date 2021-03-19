@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Khoa implements Serializable {
 	private static final long serialVersionUID = 6541209675058522106L;
 
-	public String ten = "Trường Đại Học Mở Hà Nội";
+	public String ten = "Trường ĐH Mở Hà Nội - Khoa CNTT";
 	public String diaChi = "69 Định Công, Thanh Xuân, Hà Nội";
 	public NhanSu truongKhoa;
 	public NhanSu phoKhoa;

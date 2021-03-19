@@ -8,19 +8,21 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.github.belivipro9x99.studentsmanager.Objects.KhoaController;
+
 /**
  * JavaFX App
  */
 public class App extends Application {
 
     private static Scene scene;
+    public static KhoaController khoaController;
     
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, ClassNotFoundException {
+        khoaController = new KhoaController();
+
         scene = new Scene(loadFXML("main"), 640, 480);
-        scene.getStylesheets().add(App.class.getResource("css/default.css").toString());
-        scene.getStylesheets().add(App.class.getResource("css/button.css").toString());
-        scene.getStylesheets().add(App.class.getResource("css/main.css").toString());
         stage.setScene(scene);
         stage.show();
     }

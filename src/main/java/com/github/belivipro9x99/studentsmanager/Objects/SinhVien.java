@@ -2,6 +2,9 @@ package com.github.belivipro9x99.studentsmanager.Objects;
 
 import java.util.ArrayList;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class SinhVien extends NhanSu {
     private static final long serialVersionUID = 7932796623774919940L;
     

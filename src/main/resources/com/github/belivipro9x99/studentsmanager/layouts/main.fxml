@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
+<?import java.net.URL?>
 
-<VBox spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.belivipro9x99.studentsmanager.Controllers.MainController">
+<VBox
+   xmlns="http://javafx.com/javafx/8.0.171"
+   xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="com.github.belivipro9x99.studentsmanager.Controllers.MainController"
+>
    <children>
-      <Label fx:id="mainTitle" text="Sample Title" />
+      <HBox styleClass="header">
+         <VBox HBox.hgrow="ALWAYS">
+            <Label fx:id="mainTitle" text="Tên Khoa" />
+            <Label fx:id="subTitle" text="Địa Chỉ" />
+         </VBox>
+         <VBox>
+            <Button text="Chỉnh Sửa Thông Tin"></Button>
+         </VBox>
+      </HBox>
+
+      <TabPane VBox.vgrow="ALWAYS">
+         <tabs>
+           <Tab text="Sinh Viên" closable="false">
+               <content>
+                  <TableView fx:id="studentsTable">
+                  </TableView>
+               </content>
+           </Tab>
+           <Tab text="Untitled Tab 2">
+             <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+             </content>
+           </Tab>
+         </tabs>
+       </TabPane>
    </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
+
+   <stylesheets>
+      <URL value="@css/default.css"></URL>
+      <URL value="@css/button.css"></URL>
+      <URL value="@css/main.css"></URL>
+   </stylesheets>
 </VBox>
