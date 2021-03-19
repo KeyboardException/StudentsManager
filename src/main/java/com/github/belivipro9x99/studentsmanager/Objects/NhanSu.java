@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class NhanSu implements Serializable {
 	private static final long serialVersionUID = 7093552118543864508L;
 
-	public String ten;
+	private String ten;
 	public NgayThang ngaySinh;
-	public Boolean gioiTinh = true;
-	public String soDienThoai;
-	public String email;
+	private Boolean gioiTinh = true;
+	private String soDienThoai;
+	private String email;
 
 	public NhanSu() {}
 
@@ -29,6 +29,40 @@ public class NhanSu implements Serializable {
 		this.gioiTinh = gioiTinh;
 		this.soDienThoai = soDienThoai;
 		this.email = email;
+	}
+
+	public String getTen() {
+		return ten;
+	}
+
+	public void setTen(String ten) {
+		this.ten = ten;
+	}
+
+	public String getSoDienThoai() {
+		return soDienThoai;
+	}
+
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getGioiTinh() {
+		return gioiTinh
+			? "Nam"
+			: "Nữ";
+	}
+
+	public void setGioiTinh(Boolean gioiTinh) {
+		this.gioiTinh = gioiTinh;
 	}
 
 	@Override
