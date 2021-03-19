@@ -29,11 +29,11 @@ public class SinhVien extends NhanSu {
 
     public SinhVien(
         String ten,
+        String maSV,
 		NgayThang ngaySinh,
 		Boolean gioiTinh,
 		String soDienThoai,
 		String email,
-        String maSV,
         String queQuan,
         int khoa
     ) {
