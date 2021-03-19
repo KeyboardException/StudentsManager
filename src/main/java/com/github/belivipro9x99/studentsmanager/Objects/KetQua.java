@@ -5,20 +5,53 @@ import java.io.Serializable;
 public class KetQua implements Serializable {
     private static final long serialVersionUID = 665498274625279382L;
 
-    public String maLop;
+    private String maLop;
     public float diemCC, diemDK, diemHK;
     
     public KetQua(String maLop) {
         this.maLop = maLop;
     }
 
-    public KetQua(String maLop, float diemCC, float diemDK, float diemHK) {
+    public KetQua(String maLop, float diemCC, float diemDK, float diemHK) 
+    {
         this.maLop = maLop;
         this.diemCC = diemCC;
         this.diemDK = diemDK;
         this.diemHK = diemHK;
     }
+
+    public String getMaLop() {
+        return maLop;
+    }
+
+    public void setMaLop(String maLop) {
+        this.maLop = maLop;
+    }
+
+    public float getDiemCC() {
+        return diemCC;
+    }
      
+    public void setDiemCC(float diemCC) {
+        this.diemCC = diemCC;
+    }
+
+    public float getDiemDK() {
+        return diemDK;
+    }
+
+    public void setDiemDK(float diemDK) {
+        this.diemDK = diemDK;
+    }
+
+    public float getDiemHK() {
+        return diemHK;
+    }
+
+    public void setDiemHK(float diemHK) {
+        this.diemHK = diemHK;
+    }
+
     public float diemHS10() {
         return 0.1f * diemCC + 0.2f * diemDK + 0.7f * diemHK;
     }
