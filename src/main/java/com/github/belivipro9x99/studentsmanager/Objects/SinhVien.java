@@ -8,11 +8,11 @@ import javafx.beans.property.StringProperty;
 public class SinhVien extends NhanSu {
     private static final long serialVersionUID = 7932796623774919940L;
     
-    public String maSV;
-    public String queQuan;
+    private String maSV;
+    private String queQuan;
     public ArrayList<LopHoc> lopHoc = new ArrayList<LopHoc>();
     public ArrayList<KetQua> ketQua = new ArrayList<KetQua>();
-    public int khoa;
+    private int khoa;
 
     public SinhVien(String maSV) {
         this.maSV = maSV;
@@ -43,6 +43,30 @@ public class SinhVien extends NhanSu {
         super(ten, ngaySinh, gioiTinh, soDienThoai, email);
         this.maSV = maSV;
         this.queQuan = queQuan;
+        this.khoa = khoa;
+    }
+
+    public String getMaSV() {
+        return maSV;
+    }
+    
+    public String getQuequan() {
+        return queQuan;
+    }
+
+    public int getKhoa() {
+        return khoa;
+    }
+
+    public void setMaSV(String maSV) {
+        this.maSV = maSV;
+    }
+
+    public void setQueQuan(String queQuan) {
+        this.queQuan = queQuan;
+    }
+
+    public void setKhoa(int khoa) {
         this.khoa = khoa;
     }
 

@@ -8,6 +8,14 @@ public class PhongHoc implements Serializable {
     String soPhong;
     LopHoc[] lopHoc;
 
+    public String getSoPhong() {
+        return soPhong;
+    }
+
+    public void setSoPhong(String soPhong) {
+        this.soPhong = soPhong;
+    }
+
     @Override
     public String toString(){
         return String.format("SoPhong[soPhong=%s]", soPhong);
