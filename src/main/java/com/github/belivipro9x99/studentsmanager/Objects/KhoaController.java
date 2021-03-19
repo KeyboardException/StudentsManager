@@ -20,9 +20,9 @@ public class KhoaController {
 	public KhoaController() throws FileNotFoundException, IOException, ClassNotFoundException {
 		if (!dataFile.exists()) {
 			khoa = new Khoa();
-			this.save();
+			KhoaController.save();
 		} else
-			this.load();
+			KhoaController.load();
 	}
 
 	public static void addSinhVien(SinhVien sinhVien) throws SinhVienExistException {
