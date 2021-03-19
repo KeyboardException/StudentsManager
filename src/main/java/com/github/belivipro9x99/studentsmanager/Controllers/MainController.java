@@ -37,7 +37,7 @@ public class MainController implements Initializable {
         columnList.add(idColumn);
 
         TableColumn<SinhVien, String> nameColumn = new TableColumn<>("Họ Tên");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("ten"));
         columnList.add(nameColumn);
 
         TableColumn<SinhVien, String> dobColumn = new TableColumn<>("Ngày Sinh");
@@ -69,7 +69,6 @@ public class MainController implements Initializable {
 
     public void updateStudentsTable() {
         ObservableList<SinhVien> list = FXCollections.observableArrayList(KhoaController.getSinhVienList());
-        list.add(new SinhVien("asdasdaf"));
         studentsTable.setItems(list);
     }
 }
