@@ -8,11 +8,11 @@ public class LopHoc implements Serializable {
     private String maLop;
     private String monHoc;
     private int soTinChi;
-    NgayThang thoiGian;
-    PhongHoc phongHoc;
-    SinhVien[] sinhVien;
-    GiangVien giangVien;
-    int trangThai;
+    public NgayThang thoiGian;
+    public PhongHoc phongHoc;
+    public SinhVien[] sinhVien;
+    public GiangVien giangVien;
+    private int trangThai;
 
     public String getTrangThai(){
         return new String[] {
@@ -22,12 +22,24 @@ public class LopHoc implements Serializable {
         }[trangThai];
     }
 
+    public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
+    }
+
     public String getMaLop() {
         return maLop;
     }
 
     public void setMaLop(String maLop) {
         this.maLop = maLop;
+    }
+
+    public String getMonHoc() {
+        return monHoc;
+    }
+
+    public void setMonHoc(String monHoc) {
+        this.monHoc = monHoc;
     }
 
     public GiangVien getGiangVien() {
@@ -45,7 +57,7 @@ public class LopHoc implements Serializable {
     public void setSoTinChi(int soTinChi) {
         this.soTinChi = soTinChi;
     }
-    
+
     @Override
     public String toString(){
         return String.format("LopHoc[maLop=%s]", maLop);
