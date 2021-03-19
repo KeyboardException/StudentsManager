@@ -8,8 +8,8 @@ import java.util.Date;
 public class NgayThang implements Serializable {
 	private static final long serialVersionUID = -2779251502539110801L;
 	
-	public long timestamp;
-	public Date date;
+	private long timestamp;
+	private Date date;
 
 	public NgayThang() {
 		date = new Date();
@@ -19,6 +19,22 @@ public class NgayThang implements Serializable {
 	public NgayThang(long time) {
 		this.timestamp = time;
 		date = new Date(time);
+	}
+
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+	
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public String toDateString() {
