@@ -27,7 +27,7 @@ public class KhoaController {
 
 	public static void addSinhVien(SinhVien sinhVien) throws SinhVienExistException {
 		for (SinhVien item: getSinhVienList())
-			if (item.maSV.equals(sinhVien.maSV))
+			if (item.getMaSV().equals(sinhVien.getMaSV()))
 				throw new SinhVienExistException(item);
 
 		khoa.sinhVien.add(sinhVien);
