@@ -30,6 +30,14 @@ public class LopHoc implements Serializable {
         this.maLop = maLop;
     }
 
+    public String getMonHoc() {
+        return monHoc;
+    }
+
+    public void setMonHoc(String monHoc) {
+        this.monHoc = monHoc;
+    }
+
     public GiangVien getGiangVien() {
         return giangVien;
     }
@@ -45,7 +53,7 @@ public class LopHoc implements Serializable {
     public void setSoTinChi(int soTinChi) {
         this.soTinChi = soTinChi;
     }
-    
+
     @Override
     public String toString(){
         return String.format("LopHoc[maLop=%s]", maLop);
