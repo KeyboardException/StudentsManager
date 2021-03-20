@@ -22,7 +22,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException, ClassNotFoundException {
         khoaController = new KhoaController();
 
-        scene = new Scene(loadFXML("main"), 640, 480);
+        scene = new Scene(loadFXML("main"), 860, 520);
         stage.setScene(scene);
         stage.show();
     }

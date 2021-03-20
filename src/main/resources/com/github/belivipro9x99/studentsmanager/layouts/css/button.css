@@ -8,13 +8,30 @@
 */
 
 Button {
-	-fx-padding: 8px 20px 8px 20px;
-
-	-fx-font-size: 12px;
-	-fx-font-weight: bolder;
+	-fx-font-family: "Open Sans";
+	-fx-font-size: 13px;
+	-fx-font-weight: bold;
 	-fx-text-fill: white;
-	-fx-border-radius: 8px;
+	-fx-background-radius: 2px;
+	-fx-padding: 8px 15px;
+	-fx-text-align: center;
 
 	-fx-cursor: pointer;
-	-fx-background-color: rgb(68, 170, 221);
+	-fx-background-color: #44aadd;
+}
+
+Button:hover {
+	-fx-background-color: #63c2f2;
+}
+
+Button.green {
+	-fx-background-color: #88b400;
+}
+
+Button.green:hover {
+	-fx-background-color: #97c900;
+}
+
+Button.rect {
+	-fx-background-radius: 0px;
 }

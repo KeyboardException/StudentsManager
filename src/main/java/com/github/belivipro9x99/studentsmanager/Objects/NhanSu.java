@@ -35,6 +35,21 @@ public class NhanSu implements Serializable {
 		return ten;
 	}
 
+	public String getSurname() {
+		String[] part = ten.split(" ");
+		String surname = "";
+
+		for (int i = 0; i < part.length - 1; i++)
+			surname += part[i] + ((i == part.length - 2) ? "" : " ");
+
+		return surname;
+	}
+
+	public String getName() {
+		String[] part = ten.split(" ");
+		return part[part.length - 1];
+	}
+
 	public void setTen(String ten) {
 		this.ten = ten;
 	}
@@ -63,6 +78,14 @@ public class NhanSu implements Serializable {
 
 	public void setGioiTinh(Boolean gioiTinh) {
 		this.gioiTinh = gioiTinh;
+	}
+
+	public String getNgaySinh() {
+		return ngaySinh.toString();
+	}
+
+	public void setNgaySinh(NgayThang ngaySinh) {
+		this.ngaySinh = ngaySinh;
 	}
 
 	@Override

@@ -12,6 +12,4 @@ module com.github.belivipro9x99.studentsmanager {
     opens com.github.belivipro9x99.studentsmanager.Objects to javafx.base;
 
     exports com.github.belivipro9x99.studentsmanager;
-    exports com.github.belivipro9x99.studentsmanager.Controllers;
-    exports com.github.belivipro9x99.studentsmanager.Objects;
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.Insets?>
 <?import java.net.URL?>
 
@@ -17,25 +18,46 @@
             <Label fx:id="subTitle" text="Địa Chỉ" />
          </VBox>
          <VBox>
-            <Button text="Chỉnh Sửa Thông Tin"></Button>
+            <Button text="Chỉnh Sửa Thông Tin">
+               <graphic>
+                  <ImageView fitHeight="13" fitWidth="13" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                      <Image url="@img/pencil-alt-solid.png" />
+                    </image>
+                  </ImageView>
+                </graphic>
+            </Button>
          </VBox>
       </HBox>
 
       <TabPane VBox.vgrow="ALWAYS">
          <tabs>
-           <Tab text="Sinh Viên" closable="false">
+            <Tab text="Sinh Viên" closable="false">
                <content>
                   <TableView fx:id="studentsTable">
                   </TableView>
                </content>
-           </Tab>
-           <Tab text="Untitled Tab 2">
-             <content>
-               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-             </content>
-           </Tab>
+            </Tab>
+            <Tab text="Giảng Viên" closable="false">
+               <content>
+                  <TableView fx:id="teachersTable">
+                  </TableView>
+               </content>
+            </Tab>
          </tabs>
-       </TabPane>
+      </TabPane>
+
+      <HBox>
+         <Button HBox.hgrow="ALWAYS" maxWidth="999999999" styleClass="green, rect" text="Thêm Sinh Viên">
+            <graphic>
+               <ImageView fitHeight="13" fitWidth="13" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                   <Image url="@img/plus-solid.png" />
+                 </image>
+               </ImageView>
+             </graphic>
+         </Button>
+      </HBox>
    </children>
 
    <stylesheets>

@@ -38,7 +38,7 @@ public class NgayThang implements Serializable {
 	}
 
 	public String toDateString() {
-		DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		return dateFormat.format(date);
 	}
 
@@ -49,7 +49,7 @@ public class NgayThang implements Serializable {
 
 	@Override
 	public String toString() {
-		DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 		return dateFormat.format(date);
 	}
 }

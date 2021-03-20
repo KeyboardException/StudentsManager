@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -26,6 +27,18 @@ public class MainController implements Initializable {
         mainTitle.setText(KhoaController.khoa.ten);
         subTitle.setText(KhoaController.khoa.diaChi);
 
+        studentsTable.setRowFactory(tv -> {
+            TableRow<SinhVien> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                    SinhVien rowData = row.getItem();
+                    System.out.println("Double click on: " + rowData.getName());
+                }
+            });
+
+            return row;
+        });
+
         setupStudentsTable();
     }
 
@@ -36,8 +49,12 @@ public class MainController implements Initializable {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("maSV"));
         columnList.add(idColumn);
 
-        TableColumn<SinhVien, String> nameColumn = new TableColumn<>("Họ Tên");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("ten"));
+        TableColumn<SinhVien, String> surnameColumn = new TableColumn<>("Họ");
+        surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
+        columnList.add(surnameColumn);
+
+        TableColumn<SinhVien, String> nameColumn = new TableColumn<>("Tên");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         columnList.add(nameColumn);
 
         TableColumn<SinhVien, String> dobColumn = new TableColumn<>("Ngày Sinh");
@@ -50,6 +67,7 @@ public class MainController implements Initializable {
 
         TableColumn<SinhVien, String> phoneColumn = new TableColumn<>("Số Điện Thoại");
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("soDienThoai"));
+        phoneColumn.setMinWidth(140);
         columnList.add(phoneColumn);
 
         TableColumn<SinhVien, String> emailColumn = new TableColumn<>("Email");
