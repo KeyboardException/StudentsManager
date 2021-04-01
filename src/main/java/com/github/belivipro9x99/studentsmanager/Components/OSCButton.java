@@ -1,7 +1,5 @@
 package com.github.belivipro9x99.studentsmanager.Components;
 
-import java.io.IOException;
-
 import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
 
 import javafx.beans.property.ObjectProperty;

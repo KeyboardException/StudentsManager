@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Modality;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.github.belivipro9x99.studentsmanager.Controllers.EditController;

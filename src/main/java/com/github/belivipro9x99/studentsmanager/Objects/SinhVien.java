@@ -1,7 +1,5 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
-import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
-
 public class SinhVien extends NhanSu {
     private static final long serialVersionUID = 7932796623774919940L;
     
