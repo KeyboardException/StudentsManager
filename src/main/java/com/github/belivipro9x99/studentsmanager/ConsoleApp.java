@@ -10,15 +10,14 @@ public class ConsoleApp {
 	public static void main(String[] args) throws Exception {
 		new KhoaController();
 
-		KhoaController.addSinhVien(new SinhVien(
-			"Nguyễn Văn Thụy",
-			"20A428947298",
+		KhoaController.addGiangVien(new GiangVien(
+			"Trịnh Thị Xuân",
+			"GV14",
 			new NgayThang(),
-			true,
-			"04374623874",
-			"werwetgdqw@gmail.com",
-			"Thái Bình",
-			20
+			false,
+			"0315239335",
+			"trinhxuan@hou.edu.vn",
+			2
 		));
 
 		for (SinhVien sinhVien: KhoaController.getSinhVienList())

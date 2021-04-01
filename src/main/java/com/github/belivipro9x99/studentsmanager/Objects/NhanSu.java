@@ -6,7 +6,7 @@ public class NhanSu implements Serializable {
 	private static final long serialVersionUID = 7093552118543864508L;
 
 	private String ten;
-	public NgayThang ngaySinh;
+	public NgayThang ngaySinh = new NgayThang();
 	private Boolean gioiTinh = true;
 	private String soDienThoai;
 	private String email;
@@ -36,6 +36,9 @@ public class NhanSu implements Serializable {
 	}
 
 	public String getSurname() {
+		if (ten == null)
+			return null;
+
 		String[] part = ten.split(" ");
 		String surname = "";
 
@@ -46,6 +49,9 @@ public class NhanSu implements Serializable {
 	}
 
 	public String getName() {
+		if (ten == null)
+			return null;
+			
 		String[] part = ten.split(" ");
 		return part[part.length - 1];
 	}
@@ -74,6 +80,10 @@ public class NhanSu implements Serializable {
 		return gioiTinh
 			? "Nam"
 			: "Nữ";
+	}
+
+	public Boolean getGioiTinhAsBool() {
+		return gioiTinh;
 	}
 
 	public void setGioiTinh(Boolean gioiTinh) {

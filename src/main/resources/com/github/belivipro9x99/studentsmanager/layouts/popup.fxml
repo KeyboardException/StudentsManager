@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import com.github.belivipro9x99.studentsmanager.Components.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.belivipro9x99.studentsmanager.Controllers.PopupController">
+    <children>
+		<VBox spacing="10" alignment="CENTER" styleClass="header">
+			<TriangleBackground scale="5" speed="68" count="30" fx:id="background"></TriangleBackground>
+			<HBox fx:id="titleBox" alignment="CENTER">
+				<Label HBox.hgrow="ALWAYS" maxWidth="Infinity" fx:id="windowTitle" text="Sample Title"></Label>
+
+				<HBox fx:id="windowClose">
+					<Icon icon="wclose" fitWidth="12" fitHeight="12"></Icon>
+				</HBox>
+			</HBox>
+
+			<Icon fx:id="headerIcon" icon="keyboard" fitHeight="58"></Icon>
+			<Label fx:id="title" styleClass="title" text="Sample Title"></Label>
+		</VBox>
+
+		<VBox VBox.vgrow="ALWAYS" styleClass="content">
+			<Label fx:id="inputLabel" text="LABEL"></Label>
+
+			<VBox styleClass="input" fx:id="inputBox">
+				<TextField fx:id="inputText" onAction="#userSubmit"></TextField>
+			</VBox>
+
+			<VBox styleClass="input" fx:id="labelBox">
+				<Label fx:id="labelText"></Label>
+			</VBox>
+
+			<VBox VBox.vgrow="ALWAYS" styleClass="input" fx:id="textAreaBox">
+				<TextArea VBox.vgrow="ALWAYS" maxHeight="Infinity" fx:id="inputArea"></TextArea>
+			</VBox>
+		</VBox>
+
+		<HBox spacing="10" styleClass="buttons">
+			<Region HBox.hgrow="ALWAYS"></Region>
+
+			<OSCButton text="Nút 1" fx:id="firstButton" onAction="#userSubmit"></OSCButton>
+			<OSCButton text="Nút 2" fx:id="secondButton" onAction="#closeWindow"></OSCButton>
+		</HBox>
+    </children>
+
+    <stylesheets>
+		<URL value="@css/default.css"></URL>
+		<URL value="@css/input.css"></URL>
+		<URL value="@css/button.css"></URL>
+		<URL value="@css/popup.css"></URL>
+	 </stylesheets>
+</VBox>

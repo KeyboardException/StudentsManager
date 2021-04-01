@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
 import com.github.belivipro9x99.studentsmanager.Exception.GiangVienExistException;
 import com.github.belivipro9x99.studentsmanager.Exception.SinhVienExistException;
 
@@ -31,6 +32,12 @@ public class KhoaController {
 				throw new SinhVienExistException(item);
 
 		khoa.sinhVien.add(sinhVien);
+
+		try {
+			save();
+		} catch (Exception e) {
+			ExceptionHandler.handle(e);
+		}
 	}
 
 	public static ArrayList<SinhVien> getSinhVienList() {
@@ -39,6 +46,12 @@ public class KhoaController {
 
 	public static void removeSinhVien(SinhVien sinhVien) {
 		khoa.sinhVien.remove(sinhVien);
+
+		try {
+			save();
+		} catch (Exception e) {
+			ExceptionHandler.handle(e);
+		}
 	}
 	
 	public static void addGiangVien(GiangVien giangVien) throws GiangVienExistException {
@@ -47,6 +60,12 @@ public class KhoaController {
 				throw new GiangVienExistException(item);
 
 		khoa.giangVien.add(giangVien);
+
+		try {
+			save();
+		} catch (Exception e) {
+			ExceptionHandler.handle(e);
+		}
 	}
 
 	public static ArrayList<GiangVien> getGiangVienList() {
@@ -55,6 +74,12 @@ public class KhoaController {
 
 	public static void removeGiangVien(GiangVien giangVien) {
 		khoa.giangVien.remove(giangVien);
+
+		try {
+			save();
+		} catch (Exception e) {
+			ExceptionHandler.handle(e);
+		}
 	}
 
 

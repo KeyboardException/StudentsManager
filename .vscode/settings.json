@@ -1,4 +1,5 @@
 {
 	"java.debug.settings.showStaticVariables": true,
-	"java.debug.settings.hotCodeReplace": "auto"
+	"java.debug.settings.hotCodeReplace": "auto",
+	"java.configuration.updateBuildConfiguration": "automatic"
 }

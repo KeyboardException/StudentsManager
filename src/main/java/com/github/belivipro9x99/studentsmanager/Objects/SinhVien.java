@@ -1,17 +1,16 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
-import java.util.ArrayList;
+import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
 
 public class SinhVien extends NhanSu {
     private static final long serialVersionUID = 7932796623774919940L;
     
     private String maSV;
     private String queQuan;
-    public ArrayList<LopHoc> lopHoc = new ArrayList<LopHoc>();
-    public ArrayList<KetQua> ketQua = new ArrayList<KetQua>();
     private int khoa;
 
     public SinhVien(String maSV) {
+        super();
         this.maSV = maSV;
     }
 

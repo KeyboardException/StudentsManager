@@ -1,26 +1,30 @@
 /*
 ? |-----------------------------------------------------------------------------------------------|
-? |  /css/button.css                                                                              |
+? |  /css/edit.css                                                                                |
 ? |                                                                                               |
 ? |  Copyright (c) 2021 Belikhun. All right reserved                                              |
 ? |  Licensed under the MIT License. See LICENSE in the project root for license information.     |
 ? |-----------------------------------------------------------------------------------------------|
 */
 
-OSCButton {
-	-fx-border-radius: 8px;
-	-fx-background-radius: 8px;
-	-fx-cursor: hand;
+#mainTitle {
+	-fx-font-size: 26px;
+	-fx-font-weight: 900;
 }
 
-OSCButton > Button {
-	-fx-padding: 8px 15px 8px 15px;
+.header {
+	-fx-padding: 10px;
+	-fx-background-color: rgb(240, 240, 240);
+}
 
-	-fx-font-family: "Open Sans";
-	-fx-font-size: 14px;
-	-fx-font-weight: bold;
-	-fx-text-fill: white;
-	-fx-text-align: center;
-	-fx-focus-color: transparent;
-	-fx-background-color: transparent;
+.form {
+	-fx-padding: 5px;
+}
+
+.form > VBox {
+	-fx-padding: 5px;
+}
+
+.footer {
+	-fx-padding: 10px;
 }

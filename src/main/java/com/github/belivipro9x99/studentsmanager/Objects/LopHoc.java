@@ -1,6 +1,7 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class LopHoc implements Serializable {
     private static final long serialVersionUID = 7426763019335067858L;
@@ -10,11 +11,11 @@ public class LopHoc implements Serializable {
     private int soTinChi;
     public NgayThang thoiGian;
     public PhongHoc phongHoc;
-    public SinhVien[] sinhVien;
+    public ArrayList<String> maSV;
     public GiangVien giangVien;
     private int trangThai;
 
-    public String getTrangThai(){
+    public String getTrangThai() {
         return new String[] {
             "Học",
             "Học online",

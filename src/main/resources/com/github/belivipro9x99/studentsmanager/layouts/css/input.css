@@ -1,26 +1,24 @@
 /*
 ? |-----------------------------------------------------------------------------------------------|
-? |  /css/button.css                                                                              |
+? |  /css/input.css                                                                               |
 ? |                                                                                               |
 ? |  Copyright (c) 2021 Belikhun. All right reserved                                              |
 ? |  Licensed under the MIT License. See LICENSE in the project root for license information.     |
 ? |-----------------------------------------------------------------------------------------------|
 */
 
-OSCButton {
-	-fx-border-radius: 8px;
-	-fx-background-radius: 8px;
-	-fx-cursor: hand;
+TextField,
+TextArea,
+DatePicker {
+	-fx-background-color: #ebebeb;
+	-fx-background-radius: 0;
+	-fx-border-width: 0 0 2 0;
+	-fx-border-color: #c2c2c2;
 }
 
-OSCButton > Button {
-	-fx-padding: 8px 15px 8px 15px;
-
-	-fx-font-family: "Open Sans";
-	-fx-font-size: 14px;
-	-fx-font-weight: bold;
-	-fx-text-fill: white;
-	-fx-text-align: center;
-	-fx-focus-color: transparent;
-	-fx-background-color: transparent;
+TextField:focused,
+TextArea:focused,
+DatePicker:focused {
+    -fx-background-color: #ededed;
+	-fx-border-color: #44aadd;
 }

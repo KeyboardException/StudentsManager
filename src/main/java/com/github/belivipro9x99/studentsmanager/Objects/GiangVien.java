@@ -1,14 +1,17 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
 import java.util.ArrayList;
-import java.util.Set;
-
 public class GiangVien extends NhanSu {
     private static final long serialVersionUID = 6492855057322778620L;
 
     public String maGV;
     public ArrayList<LopHoc> lophoc = new ArrayList<LopHoc>();
     public int trinhDoHocVan = 0;
+
+    public GiangVien(String maGV) {
+        super();
+        this.maGV = maGV;
+    }
 
     public GiangVien(String ten, String maGV) {
         super(ten);
@@ -23,11 +26,11 @@ public class GiangVien extends NhanSu {
 
     public GiangVien(
         String ten,
+        String maGV,
 		NgayThang ngaySinh,
 		Boolean gioiTinh,
 		String soDienThoai,
 		String email,
-        String maGV,
         int trinhDoHocVan
     ) {
         super(ten, ngaySinh, gioiTinh, soDienThoai, email);
@@ -35,7 +38,7 @@ public class GiangVien extends NhanSu {
         this.trinhDoHocVan = trinhDoHocVan;
     }
 
-    public String gettrinhDoHocVan() {
+    public String getTrinhDoHocVan() {
         return new String[] {
             "Thạc Sĩ",
             "Tiến Sĩ",

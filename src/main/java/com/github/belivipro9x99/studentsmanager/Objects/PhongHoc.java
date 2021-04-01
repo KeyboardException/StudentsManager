@@ -6,7 +6,6 @@ public class PhongHoc implements Serializable {
     private static final long serialVersionUID = -2736920632304171816L;
     
     String soPhong;
-    LopHoc[] lopHoc;
 
     public String getSoPhong() {
         return soPhong;

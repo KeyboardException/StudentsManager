@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.geometry.Insets?>
-<?import java.net.URL?>
+<?import com.github.belivipro9x99.studentsmanager.Components.*?>
 
 <VBox
    xmlns="http://javafx.com/javafx/8.0.171"
@@ -17,16 +17,9 @@
             <Label fx:id="mainTitle" text="Tên Khoa" />
             <Label fx:id="subTitle" text="Địa Chỉ" />
          </VBox>
+
          <VBox>
-            <Button text="Chỉnh Sửa Thông Tin">
-               <graphic>
-                  <ImageView fitHeight="13" fitWidth="13" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                      <Image url="@img/pencil-alt-solid.png" />
-                    </image>
-                  </ImageView>
-                </graphic>
-            </Button>
+            <OSCButton icon="pencil" text="CHỈNH SỬA THÔNG TIN"></OSCButton>
          </VBox>
       </HBox>
 
@@ -34,30 +27,27 @@
          <tabs>
             <Tab text="Sinh Viên" closable="false">
                <content>
-                  <TableView fx:id="studentsTable">
-                  </TableView>
+                  <VBox>
+                     <TableView fx:id="sinhVienTable">
+                     </TableView>
+
+                     <OSCButton icon="plus" color="green" count="40" text="THÊM SINH VIÊN" onAction="#addSinhVien"></OSCButton>
+                  </VBox>
                </content>
             </Tab>
+
             <Tab text="Giảng Viên" closable="false">
                <content>
-                  <TableView fx:id="teachersTable">
-                  </TableView>
+                  <VBox>
+                     <TableView fx:id="giangVienTable">
+                     </TableView>
+
+                     <OSCButton icon="plus" color="pink" count="40" text="THÊM GIẢNG VIÊN" onAction="#addGiangVien"></OSCButton>
+                  </VBox>
                </content>
             </Tab>
          </tabs>
       </TabPane>
-
-      <HBox>
-         <Button HBox.hgrow="ALWAYS" maxWidth="999999999" styleClass="green, rect" text="Thêm Sinh Viên">
-            <graphic>
-               <ImageView fitHeight="13" fitWidth="13" pickOnBounds="true" preserveRatio="true">
-                 <image>
-                   <Image url="@img/plus-solid.png" />
-                 </image>
-               </ImageView>
-             </graphic>
-         </Button>
-      </HBox>
    </children>
 
    <stylesheets>

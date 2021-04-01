@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import com.github.belivipro9x99.studentsmanager.Components.*?>
+
+<fx:root type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<TriangleBackground fx:id="background"></TriangleBackground>
+
+		<Button HBox.hgrow="ALWAYS" maxWidth="Infinity" fx:id="button">
+			<graphic>
+				<StackPane fx:id="iconContainer">
+					<children>
+						<Icon fx:id="buttonIcon" fitHeight="16"></Icon>
+					</children>
+					<padding>
+						<Insets right="5" />
+					</padding>
+				</StackPane>
+			</graphic>
+		</Button>
+	</children>
+</fx:root>

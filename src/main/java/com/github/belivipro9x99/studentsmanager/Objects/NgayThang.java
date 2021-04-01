@@ -16,6 +16,11 @@ public class NgayThang implements Serializable {
 		timestamp = date.getTime();
 	}
 
+	public NgayThang(Date date) {
+		this.date = date;
+		this.timestamp = date.getTime();
+	}
+
 	public NgayThang(long time) {
 		this.timestamp = time;
 		date = new Date(time);

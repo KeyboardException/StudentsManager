@@ -1,26 +1,51 @@
 /*
 ? |-----------------------------------------------------------------------------------------------|
-? |  /css/button.css                                                                              |
+? |  /css/popup.css                                                                               |
 ? |                                                                                               |
 ? |  Copyright (c) 2021 Belikhun. All right reserved                                              |
 ? |  Licensed under the MIT License. See LICENSE in the project root for license information.     |
 ? |-----------------------------------------------------------------------------------------------|
 */
 
-OSCButton {
-	-fx-border-radius: 8px;
-	-fx-background-radius: 8px;
+.header {
+	-fx-padding: 0 0 20px 0;
+}
+
+#windowTitle {
+	-fx-padding: 0 0 0 10px;
+	-fx-text-fill: white;
+}
+
+#windowClose {
+	-fx-padding: 8px 15px;
 	-fx-cursor: hand;
 }
 
-OSCButton > Button {
-	-fx-padding: 8px 15px 8px 15px;
+#windowClose:hover {
+	-fx-background-color: #dd2d44;
+}
 
+.header > .title {
+	-fx-font-size: 24px;
+	-fx-font-style: italic;
+	-fx-font-weight: 900;
+	-fx-text-fill: white;
+}
+
+.buttons {
+	-fx-padding: 10px;
+}
+
+.content {
+	-fx-padding: 10px;
+}
+
+.content > VBox {
+	-fx-spacing: 2px;
+}
+
+#inputLabel {
 	-fx-font-family: "Open Sans";
 	-fx-font-size: 14px;
 	-fx-font-weight: bold;
-	-fx-text-fill: white;
-	-fx-text-align: center;
-	-fx-focus-color: transparent;
-	-fx-background-color: transparent;
 }
