@@ -38,3 +38,6 @@ gradle-app.setting
 ## OS X
 ##############################
 .DS_Store
+
+## Custom
+data.dat
