@@ -100,6 +100,6 @@ public class NhanSu implements Serializable {
 
 	@Override
 	public String toString() {
-		return String.format("NhanSu[ten=%s]", ten);
+		return ten;
 	}
 }

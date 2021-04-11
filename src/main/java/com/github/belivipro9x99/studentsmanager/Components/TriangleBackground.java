@@ -74,8 +74,8 @@ public class TriangleBackground extends Canvas implements Initializable {
 
 		public void setColor(Color color) {
 			Double r;
-			if (color == OSCColor.YELLOW)
-				r = randBetween(0.4d, 1.8d);
+			if (color == OSCColor.YELLOW || color == OSCColor.ORANGE)
+				r = randBetween(0.3d, 1.8d);
 			else
 				r = randBetween(0.9d, 1.6d);
 

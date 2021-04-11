@@ -1,11 +1,15 @@
 package com.github.belivipro9x99.studentsmanager.Objects;
 
+import java.util.ArrayList;
+
 public class SinhVien extends NhanSu {
     private static final long serialVersionUID = 7932796623774919940L;
     
     private String maSV;
     private String queQuan;
     private int khoa;
+
+    public ArrayList<KetQua> ketQua = new ArrayList<KetQua>();
 
     public SinhVien(String maSV) {
         super();
@@ -64,8 +68,30 @@ public class SinhVien extends NhanSu {
         this.khoa = khoa;
     }
 
+    public KetQua getKetQua(String maLop) {
+        if (ketQua == null)
+            ketQua = new ArrayList<KetQua>();
+
+        for (KetQua item : ketQua)
+            if (item.getMaLop() == maLop)
+                return item;
+
+        // KetQua not found. So we init a new KetQua and return it
+        KetQua newKQ = new KetQua(maLop);
+        ketQua.add(newKQ);
+        return newKQ;
+    }
+
+    public void setKetQua(String maLop, KetQua newKQ) {
+        for (KetQua item : ketQua)
+            if (item.getMaLop() == maLop) {
+                item = newKQ;
+                break;
+            }
+    }
+
     @Override
     public String toString() {
-        return String.format("SinhVien(%s)[maSV=%s]", super.toString(), maSV);
+        return String.format("%s (%s)", super.toString(), maSV);
     }
 }

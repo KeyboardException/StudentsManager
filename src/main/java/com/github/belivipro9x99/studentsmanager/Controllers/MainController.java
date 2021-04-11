@@ -14,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import com.github.belivipro9x99.studentsmanager.Objects.KhoaController;
+import com.github.belivipro9x99.studentsmanager.Objects.LopHoc;
 import com.github.belivipro9x99.studentsmanager.Objects.SinhVien;
 import com.github.belivipro9x99.studentsmanager.App;
 import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
@@ -25,6 +26,7 @@ public class MainController implements Initializable {
 
     public TableView<SinhVien> sinhVienTable;
     public TableView<GiangVien> giangVienTable;
+    public TableView<LopHoc> lopHocTable;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,6 +52,7 @@ public class MainController implements Initializable {
                     }
 
                     updateSinhVienTable();
+                    KhoaController.safeSave();
                 }
             });
 
@@ -73,6 +76,31 @@ public class MainController implements Initializable {
                     }
 
                     updateGiangVienTable();
+                    KhoaController.safeSave();
+                }
+            });
+
+            return row;
+        });
+
+        lopHocTable.setRowFactory(tv -> {
+            TableRow<LopHoc> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                    LopHoc lopHoc = row.getItem();
+                    String action = App.editLopHoc(lopHoc, false);
+
+                    switch (action) {
+                        case "delete":
+                            KhoaController.removeLopHoc(lopHoc);
+                            break;
+                    
+                        default:
+                            break;
+                    }
+
+                    updateLopHocTable();
+                    KhoaController.safeSave();
                 }
             });
 
@@ -81,6 +109,7 @@ public class MainController implements Initializable {
 
         setupSinhVienTable();
         setupGiangVienTable();
+        setupLopHocTable();
     }
 
     public void setupSinhVienTable() {
@@ -231,5 +260,69 @@ public class MainController implements Initializable {
         }
 
         updateGiangVienTable();
+    }
+
+    public void setupLopHocTable() {
+        ObservableList<TableColumn<LopHoc, ?>> columnList = lopHocTable.getColumns();
+
+        TableColumn<LopHoc, String> idColumn = new TableColumn<>("Mã Lớp");
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("maLop"));
+        columnList.add(idColumn);
+
+        TableColumn<LopHoc, String> subjColumn = new TableColumn<>("Môn Học");
+        subjColumn.setCellValueFactory(new PropertyValueFactory<>("monHoc"));
+        columnList.add(subjColumn);
+
+        TableColumn<LopHoc, String> stcColumn = new TableColumn<>("Số Tín Chỉ");
+        stcColumn.setCellValueFactory(new PropertyValueFactory<>("soTinChi"));
+        columnList.add(stcColumn);
+
+        TableColumn<LopHoc, String> roomColumn = new TableColumn<>("Phòng Học");
+        roomColumn.setCellValueFactory(new PropertyValueFactory<>("phongHoc"));
+        columnList.add(roomColumn);
+
+        TableColumn<LopHoc, String> gvColumn = new TableColumn<>("Giảng Viên");
+        gvColumn.setCellValueFactory(new PropertyValueFactory<>("giangVien"));
+        columnList.add(gvColumn);
+
+        TableColumn<LopHoc, String> statusColumn = new TableColumn<>("Trạng Thái");
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("trangThai"));
+        columnList.add(statusColumn);
+
+        updateLopHocTable();
+    }
+
+    public void updateLopHocTable() {
+        ObservableList<LopHoc> list = FXCollections.observableArrayList(KhoaController.getLopHocList());
+        lopHocTable.setItems(list);
+        lopHocTable.refresh();
+    }
+
+    @FXML
+    public void addLopHoc() {
+        System.out.println("Add LopHoc");
+        String id = App.askForID("Lớp Học");
+        System.out.println("Got ID " + id);
+
+        if (id == null || id.length() < 1)
+            return;
+
+        LopHoc lopHoc = new LopHoc(id);
+        String action = App.editLopHoc(lopHoc, true);
+
+        switch (action) {
+            case "submit":
+                try {
+                    KhoaController.addLopHoc(lopHoc);
+                } catch (Exception e) {
+                    ExceptionHandler.handle(e);
+                }
+                break;
+                
+            default:
+                break;
+        }
+
+        updateLopHocTable();
     }
 }

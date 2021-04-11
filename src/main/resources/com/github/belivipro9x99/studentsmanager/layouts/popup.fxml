@@ -23,10 +23,14 @@
 		</VBox>
 
 		<VBox VBox.vgrow="ALWAYS" styleClass="content">
-			<Label fx:id="inputLabel" text="LABEL"></Label>
+			<Label fx:id="inputLabel" text="LABEL" wrapText="true"></Label>
 
 			<VBox styleClass="input" fx:id="inputBox">
 				<TextField fx:id="inputText" onAction="#userSubmit"></TextField>
+			</VBox>
+
+			<VBox styleClass="input" fx:id="selectBox">
+				<ChoiceBox maxWidth="Infinity" fx:id="selectInput"></ChoiceBox>
 			</VBox>
 
 			<VBox styleClass="input" fx:id="labelBox">

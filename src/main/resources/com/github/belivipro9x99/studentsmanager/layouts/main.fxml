@@ -46,6 +46,17 @@
                   </VBox>
                </content>
             </Tab>
+
+            <Tab text="Lớp Học" closable="false">
+               <content>
+                  <VBox>
+                     <TableView fx:id="lopHocTable">
+                     </TableView>
+
+                     <OSCButton icon="plus" color="orange" count="40" text="THÊM LỚP HỌC" onAction="#addLopHoc"></OSCButton>
+                  </VBox>
+               </content>
+            </Tab>
          </tabs>
       </TabPane>
    </children>

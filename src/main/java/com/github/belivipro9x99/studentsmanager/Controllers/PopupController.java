@@ -1,6 +1,7 @@
 package com.github.belivipro9x99.studentsmanager.Controllers;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.github.belivipro9x99.studentsmanager.Components.Icon;
@@ -8,8 +9,11 @@ import com.github.belivipro9x99.studentsmanager.Components.OSCButton;
 import com.github.belivipro9x99.studentsmanager.Components.OSCColor;
 import com.github.belivipro9x99.studentsmanager.Components.TriangleBackground;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -38,6 +42,10 @@ public class PopupController implements Initializable {
 
 	public VBox inputBox;
 	public TextField inputText;
+
+	public VBox selectBox;
+	@SuppressWarnings("rawtypes")
+	public ChoiceBox selectInput;
 
 	public VBox labelBox;
 	public Label labelText;
@@ -102,11 +110,22 @@ public class PopupController implements Initializable {
 		this.type = type;
 		hide(inputBox);
 		hide(labelBox);
+		hide(selectBox);
 		hide(textAreaBox);
 
 		switch (type) {
 			case "input":
 				show(inputBox);
+				firstButton.setColor(OSCColor.GREEN);
+				firstButton.setText("Xác Nhận");
+				firstButton.setIcon("check");
+				secondButton.setColor(OSCColor.YELLOW);
+				secondButton.setText("Hủy");
+				secondButton.setIcon("times");
+				break;
+
+			case "select":
+				show(selectBox);
 				firstButton.setColor(OSCColor.GREEN);
 				firstButton.setText("Xác Nhận");
 				firstButton.setIcon("check");
@@ -141,6 +160,20 @@ public class PopupController implements Initializable {
 			default:
 				break;
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T> void setChoiceValues(ArrayList<T> choiceList) {
+		ObservableList<T> obs = FXCollections.observableArrayList(choiceList);
+		selectInput.getItems().setAll(obs);
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T> T getChoiceValue() {
+		if (this.userSubmitted)
+			return (T) selectInput.getValue();
+		
+		return null;
 	}
 
 	public String getValue() {

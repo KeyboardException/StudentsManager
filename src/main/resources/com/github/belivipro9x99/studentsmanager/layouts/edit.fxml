@@ -59,6 +59,26 @@
 					<Label text="Khóa" />
 					<TextField fx:id="khoaInput" />
 					<Region prefHeight="10.0" />
+
+					<VBox fx:id="sinhVienKetQuaBox">
+						<Label fx:id="sinhVienKetQuaLabel" styleClass="resultLabel" />
+	
+						<HBox prefWidth="0" spacing="10">
+							<VBox HBox.hgrow="ALWAYS">
+								<Label text="Điểm Chuyên Cần" />
+								<TextField fx:id="diemCCInput" />
+							</VBox>
+		
+							<VBox HBox.hgrow="ALWAYS">
+								<Label text="Điểm Điều Kiện" />
+								<TextField fx:id="diemDKInput" />
+							</VBox>
+						</HBox>
+						
+						<Region prefHeight="10.0" />
+						<Label text="Điểm Học Kì" />
+						<TextField fx:id="diemHKInput" />
+					</VBox>
 				</VBox>
 
 				<VBox fx:id="giangVienBox">

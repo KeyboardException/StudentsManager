@@ -61,6 +61,6 @@ public class GiangVien extends NhanSu {
 
     @Override
     public String toString() {
-        return String.format("GiangVien(%s)[maGV=%s]", super.toString(), maGV);
+        return String.format("%s (%s)", super.toString(), maGV);
     }
 }

@@ -10,6 +10,7 @@ import java.time.ZoneId;
 import com.github.belivipro9x99.studentsmanager.App;
 import com.github.belivipro9x99.studentsmanager.Components.OSCButton;
 import com.github.belivipro9x99.studentsmanager.Objects.GiangVien;
+import com.github.belivipro9x99.studentsmanager.Objects.KetQua;
 import com.github.belivipro9x99.studentsmanager.Objects.NgayThang;
 import com.github.belivipro9x99.studentsmanager.Objects.NhanSu;
 import com.github.belivipro9x99.studentsmanager.Objects.SinhVien;
@@ -50,6 +51,13 @@ public class EditController implements Initializable {
 	public TextField homeInput;
 	public TextField khoaInput;
 
+	// SinhVienKetQua
+	public VBox sinhVienKetQuaBox;
+	public Label sinhVienKetQuaLabel;
+	public TextField diemCCInput;
+	public TextField diemDKInput;
+	public TextField diemHKInput;
+
 	// GiangVien
 	public VBox giangVienBox;
 	public RadioButton tdThSButton;
@@ -63,6 +71,11 @@ public class EditController implements Initializable {
         System.out.println("Loading " + this.getClass().getName());
     }
 
+	public void show(Pane pane) {
+		pane.setVisible(true);
+        pane.setManaged(true);
+	}
+
 	public void hide(Pane pane) {
 		pane.setVisible(false);
         pane.setManaged(false);
@@ -71,6 +84,7 @@ public class EditController implements Initializable {
 	public void setNhanSu(NhanSu nhanSu) {
 		this.nhanSu = nhanSu;
 		System.out.println("Got " + nhanSu);
+		hide(sinhVienKetQuaBox);
 
 		if (nhanSu instanceof SinhVien) {
 			hide(giangVienBox);
@@ -225,5 +239,53 @@ public class EditController implements Initializable {
 
 	public void closeWindow() {
 		stage.close();
+	}
+
+	public void setEditKetQua(KetQua ketQua) {
+		if (!(nhanSu instanceof SinhVien))
+			return;
+
+		show(sinhVienKetQuaBox);
+		sinhVienKetQuaLabel.setText("CHỈNH SỬA ĐIỂM CỦA LỚP " + ketQua.getMaLop());
+		diemCCInput.setText(String.valueOf(ketQua.diemCC));
+		diemDKInput.setText(String.valueOf(ketQua.diemDK));
+		diemHKInput.setText(String.valueOf(ketQua.diemHK));
+
+		diemCCInput.setOnKeyTyped(e -> {
+			String value = diemCCInput.getText();
+			String sVal = sanitizeDouble(value);
+
+			if (value != sVal)
+				diemCCInput.setText(sVal);
+
+			ketQua.setDiemCC(Double.parseDouble(sVal));
+		});
+
+		diemDKInput.setOnKeyTyped(e -> {
+			String value = diemDKInput.getText();
+			String sVal = sanitizeDouble(value);
+
+			if (value != sVal)
+				diemDKInput.setText(sVal);
+
+			ketQua.setDiemDK(Double.parseDouble(sVal));
+		});
+
+		diemHKInput.setOnKeyTyped(e -> {
+			String value = diemHKInput.getText();
+			String sVal = sanitizeDouble(value);
+
+			if (value != sVal)
+				diemHKInput.setText(sVal);
+
+			ketQua.setDiemHK(Double.parseDouble(sVal));
+		});
+	}
+
+	private String sanitizeDouble(String value) {
+		if (value != null && !value.matches("\\d*\\.*"))
+			value = value.replaceAll("[^\\d\\.]", "");
+
+		return value;
 	}
 }

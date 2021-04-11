@@ -13,9 +13,7 @@ public class Khoa implements Serializable {
 
 	public ArrayList<GiangVien> giangVien = new ArrayList<GiangVien>();
 	public ArrayList<SinhVien> sinhVien = new ArrayList<SinhVien>();
-	public ArrayList<PhongHoc> phongHoc = new ArrayList<PhongHoc>();
 	public ArrayList<LopHoc> lopHoc = new ArrayList<LopHoc>();
-    public ArrayList<KetQua> ketQua = new ArrayList<KetQua>();
 
 	public Khoa() {}
 

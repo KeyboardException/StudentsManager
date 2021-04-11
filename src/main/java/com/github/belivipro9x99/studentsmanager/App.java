@@ -9,11 +9,15 @@ import javafx.stage.StageStyle;
 import javafx.stage.Modality;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import com.github.belivipro9x99.studentsmanager.Controllers.EditClassController;
 import com.github.belivipro9x99.studentsmanager.Controllers.EditController;
 import com.github.belivipro9x99.studentsmanager.Controllers.PopupController;
 import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
+import com.github.belivipro9x99.studentsmanager.Objects.KetQua;
 import com.github.belivipro9x99.studentsmanager.Objects.KhoaController;
+import com.github.belivipro9x99.studentsmanager.Objects.LopHoc;
 import com.github.belivipro9x99.studentsmanager.Objects.NhanSu;
 
 /**
@@ -65,6 +69,10 @@ public class App extends Application {
     }
 
     public static String editNhanSu(NhanSu nhanSu, Boolean isNew) {
+        return editNhanSu(nhanSu, isNew, null);
+    }
+
+    public static String editNhanSu(NhanSu nhanSu, Boolean isNew, KetQua ketQua) {
         try {
             FXMLLoader fxmlLoader = loadFXML("edit");
             Parent root = fxmlLoader.load();
@@ -73,6 +81,38 @@ public class App extends Application {
 
             Scene scene = new Scene(root);
             Stage window = createMoralWindow(scene, "Đang Chỉnh Sửa " + nhanSu.getClass().getName(), App.primaryStage);
+
+            controller.setStage(window);
+
+            if (isNew)
+                controller.hide(controller.deleteButton);
+            else
+                controller.hide(controller.cancelButton);
+
+            if (ketQua != null)
+                controller.setEditKetQua(ketQua);
+
+            window.setWidth(800);
+            window.setHeight(500);
+            window.showAndWait();
+
+            return controller.userAction;
+        } catch (IOException e) {
+            ExceptionHandler.handle(e);
+        }
+
+        return null;
+    }
+
+    public static String editLopHoc(LopHoc lopHoc, Boolean isNew) {
+        try {
+            FXMLLoader fxmlLoader = loadFXML("editClass");
+            Parent root = fxmlLoader.load();
+            EditClassController controller = fxmlLoader.getController();
+            controller.setLopHoc(lopHoc);
+
+            Scene scene = new Scene(root);
+            Stage window = createMoralWindow(scene, "Đang Chỉnh Sửa " + lopHoc.getClass().getName(), App.primaryStage);
 
             controller.setStage(window);
             if (isNew)
@@ -112,6 +152,34 @@ public class App extends Application {
             window.showAndWait();
     
             return controller.getValue();
+        } catch (IOException e) {
+            ExceptionHandler.handle(e);
+        }
+
+        return null;
+    }
+
+    public static <T> T askForChoice(ArrayList<T> choices, String prompt, Stage parent) {
+        try {
+            FXMLLoader fxmlLoader = loadFXML("popup");
+            Parent root = fxmlLoader.load();
+            PopupController controller = fxmlLoader.getController();
+            controller.setType("select");
+    
+            Scene scene = new Scene(root);
+            Stage window = createMoralWindow(scene, "Lựa Chọn", parent);
+            window.initStyle(StageStyle.UNDECORATED);
+            window.setWidth(455);
+            window.setHeight(300);
+            window.setResizable(false);
+            
+            controller.setStage(window);
+            controller.setTitle("Lựa Chọn");
+            controller.setLabel(prompt);
+            controller.setChoiceValues(choices);
+            window.showAndWait();
+    
+            return controller.getChoiceValue();
         } catch (IOException e) {
             ExceptionHandler.handle(e);
         }

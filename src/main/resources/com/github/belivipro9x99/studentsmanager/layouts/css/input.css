@@ -9,7 +9,8 @@
 
 TextField,
 TextArea,
-DatePicker {
+DatePicker,
+ChoiceBox {
 	-fx-background-color: #ebebeb;
 	-fx-background-radius: 0;
 	-fx-border-width: 0 0 2 0;
@@ -18,7 +19,8 @@ DatePicker {
 
 TextField:focused,
 TextArea:focused,
-DatePicker:focused {
+DatePicker:focused,
+ChoiceBox:focused {
     -fx-background-color: #ededed;
 	-fx-border-color: #44aadd;
 }

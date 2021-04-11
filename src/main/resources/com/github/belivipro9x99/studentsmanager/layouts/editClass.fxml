@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import com.github.belivipro9x99.studentsmanager.Components.*?>
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.belivipro9x99.studentsmanager.Controllers.EditClassController">
+    <children>
+		<HBox styleClass="header">
+			<VBox HBox.hgrow="ALWAYS">
+			   <Label fx:id="mainTitle" text="Chỉnh Sửa Lớp Học" />
+			   <Label fx:id="subTitle" text="Editing Object Info" />
+			</VBox>
+		</HBox>
+		 
+		<HBox styleClass="form" VBox.vgrow="ALWAYS">
+			<VBox HBox.hgrow="ALWAYS">
+				<Label text="Môn Học" />
+                <TextField fx:id="subjectInput" />
+				<Region prefHeight="10.0" />
+
+				<Label text="Số Tín Chỉ" />
+                <TextField fx:id="stcInput" />
+				<Region prefHeight="10.0" />
+
+				<Label text="Phòng Học" />
+                <TextField fx:id="roomInput" />
+				<Region prefHeight="10.0" />
+			</VBox>
+
+			<VBox HBox.hgrow="ALWAYS">
+				<Label text="Giảng Viên" />
+				<ChoiceBox maxWidth="Infinity" fx:id="giangVienInput" />
+				<Region prefHeight="10.0" />
+
+				<Label text="Trạng Thái" />
+				<VBox>
+					<RadioButton fx:id="ttHocButton" text="Học">
+						<toggleGroup>
+							<ToggleGroup fx:id="trangThaiGroup"/>
+						</toggleGroup>
+					</RadioButton>
+					<Region prefHeight="5.0" />
+
+					<RadioButton fx:id="ttHocOnlineButton" text="Học Trực Tuyến">
+						<toggleGroup>
+							<fx:reference source="trangThaiGroup"/>
+						</toggleGroup>
+					</RadioButton>
+					<Region prefHeight="5.0" />
+
+					<RadioButton fx:id="ttNghiButton" text="Nghỉ">
+						<toggleGroup>
+							<fx:reference source="trangThaiGroup"/>
+						</toggleGroup>
+					</RadioButton>
+				</VBox>
+			</VBox>
+		</HBox>
+
+		<HBox styleClass="fullP">
+			<Label text="Sinh Viên" />
+		</HBox>
+
+		<HBox styleClass="studentsTB" fx:id="studentsContainer">
+			<VBox HBox.hgrow="ALWAYS">
+				<TableView fx:id="sinhVienTable"></TableView>
+			</VBox>
+
+			<VBox spacing="10">
+				<OSCButton color="blue" icon="plus" text="THÊM" onAction="#studentAdd"></OSCButton>
+				<OSCButton color="red" icon="trash" text="XÓA" onAction="#studentRemove"></OSCButton>
+			</VBox>
+		</HBox>
+
+		<HBox spacing="10" styleClass="footer">
+			<Region HBox.hgrow="ALWAYS"></Region>
+
+			<OSCButton color="blue" icon="save" text="LƯU" onAction="#userSubmit"></OSCButton>
+			<OSCButton fx:id="cancelButton" color="yellow" icon="times" text="HỦY" onAction="#userCancel"></OSCButton>
+			<OSCButton fx:id="deleteButton" color="red" icon="trash" text="XÓA" onAction="#userDelete"></OSCButton>
+		</HBox>
+    </children>
+
+    <stylesheets>
+		<URL value="@css/default.css"></URL>
+		<URL value="@css/button.css"></URL>
+		<URL value="@css/input.css"></URL>
+		<URL value="@css/edit.css"></URL>
+	 </stylesheets>
+</VBox>

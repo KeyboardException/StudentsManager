@@ -6,13 +6,13 @@ public class KetQua implements Serializable {
     private static final long serialVersionUID = 665498274625279382L;
 
     private String maLop;
-    public float diemCC, diemDK, diemHK;
+    public Double diemCC = 0d, diemDK = 0d, diemHK = 0d;
     
     public KetQua(String maLop) {
         this.maLop = maLop;
     }
 
-    public KetQua(String maLop, float diemCC, float diemDK, float diemHK) 
+    public KetQua(String maLop, Double diemCC, Double diemDK, Double diemHK) 
     {
         this.maLop = maLop;
         this.diemCC = diemCC;
@@ -28,57 +28,57 @@ public class KetQua implements Serializable {
         this.maLop = maLop;
     }
 
-    public float getDiemCC() {
+    public Double getDiemCC() {
         return diemCC;
     }
      
-    public void setDiemCC(float diemCC) {
+    public void setDiemCC(Double diemCC) {
         this.diemCC = diemCC;
     }
 
-    public float getDiemDK() {
+    public Double getDiemDK() {
         return diemDK;
     }
 
-    public void setDiemDK(float diemDK) {
+    public void setDiemDK(Double diemDK) {
         this.diemDK = diemDK;
     }
 
-    public float getDiemHK() {
+    public Double getDiemHK() {
         return diemHK;
     }
 
-    public void setDiemHK(float diemHK) {
+    public void setDiemHK(Double diemHK) {
         this.diemHK = diemHK;
     }
 
-    public float diemHS10() {
+    public Double diemHS10() {
         return 0.1f * diemCC + 0.2f * diemDK + 0.7f * diemHK;
     }
 
-    public float diemHS4() {
-        float d = diemHS10();
+    public Double diemHS4() {
+        Double d = diemHS10();
 
         if (d >= 8.5)
-            return 4.0f;
+            return 4.0d;
         else if (d >= 8.0)
-            return 3.5f;
+            return 3.5d;
         else if (d >= 7.0)
-            return 3.0f;
+            return 3.0d;
         else if (d >= 6.5)
-            return 2.5f;
+            return 2.5d;
         else if (d >= 5.5)
-            return 2.0f;
+            return 2.0d;
         else if (d >= 5.0)
-            return 1.5f;
+            return 1.5d;
         else if (d >= 4.0)
-            return 1.0f;
+            return 1.0d;
 
-        return 0f;
+        return 0d;
     }
 
     public String xepLoai() {
-        float d = diemHS10();
+        Double d = diemHS10();
 
         if (d >= 9.5)
             return "A+";

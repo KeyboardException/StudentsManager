@@ -25,6 +25,25 @@
 	-fx-padding: 5px;
 }
 
+.studentsTB {
+	-fx-padding: 0 5px;
+}
+
+.studentsTB > VBox {
+	-fx-padding: 0 5px;
+}
+
+.fullP {
+	-fx-padding: 0 10px;
+}
+
 .footer {
 	-fx-padding: 10px;
+}
+
+#sinhVienKetQuaLabel {
+	-fx-font-family: "Open Sans";
+	-fx-font-size: 14px;
+	-fx-font-weight: bold;
+	-fx-padding: 10px 0 5px 0;
 }

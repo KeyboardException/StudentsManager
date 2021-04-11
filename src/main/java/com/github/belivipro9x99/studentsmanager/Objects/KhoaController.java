@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
 import com.github.belivipro9x99.studentsmanager.Exception.GiangVienExistException;
+import com.github.belivipro9x99.studentsmanager.Exception.LopHocExistException;
 import com.github.belivipro9x99.studentsmanager.Exception.SinhVienExistException;
 
 public class KhoaController {
@@ -32,12 +33,7 @@ public class KhoaController {
 				throw new SinhVienExistException(item);
 
 		khoa.sinhVien.add(sinhVien);
-
-		try {
-			save();
-		} catch (Exception e) {
-			ExceptionHandler.handle(e);
-		}
+		safeSave();
 	}
 
 	public static ArrayList<SinhVien> getSinhVienList() {
@@ -46,12 +42,7 @@ public class KhoaController {
 
 	public static void removeSinhVien(SinhVien sinhVien) {
 		khoa.sinhVien.remove(sinhVien);
-
-		try {
-			save();
-		} catch (Exception e) {
-			ExceptionHandler.handle(e);
-		}
+		safeSave();
 	}
 	
 	public static void addGiangVien(GiangVien giangVien) throws GiangVienExistException {
@@ -60,12 +51,7 @@ public class KhoaController {
 				throw new GiangVienExistException(item);
 
 		khoa.giangVien.add(giangVien);
-
-		try {
-			save();
-		} catch (Exception e) {
-			ExceptionHandler.handle(e);
-		}
+		safeSave();
 	}
 
 	public static ArrayList<GiangVien> getGiangVienList() {
@@ -74,7 +60,28 @@ public class KhoaController {
 
 	public static void removeGiangVien(GiangVien giangVien) {
 		khoa.giangVien.remove(giangVien);
+		safeSave();
+	}
 
+	public static void addLopHoc(LopHoc lopHoc) throws LopHocExistException {
+		for (LopHoc item: getLopHocList())
+			if (item.maLop.equals(lopHoc.maLop))
+				throw new LopHocExistException(item);
+
+		khoa.lopHoc.add(lopHoc);
+		safeSave();
+	}
+
+	public static ArrayList<LopHoc> getLopHocList() {
+		return khoa.lopHoc;
+	}
+
+	public static void removeLopHoc(LopHoc lopHoc) {
+		khoa.lopHoc.remove(lopHoc);
+		safeSave();
+	}
+
+	public static void safeSave() {
 		try {
 			save();
 		} catch (Exception e) {
@@ -82,6 +89,13 @@ public class KhoaController {
 		}
 	}
 
+	public static void safeLoad() {
+		try {
+			load();
+		} catch (Exception e) {
+			ExceptionHandler.handle(e);
+		}
+	}
 
 	/**
 	 * Write {@code Khoa} into file input stream

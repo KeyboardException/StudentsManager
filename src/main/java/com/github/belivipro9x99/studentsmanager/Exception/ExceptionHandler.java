@@ -33,7 +33,7 @@ public class ExceptionHandler implements Thread.UncaughtExceptionHandler {
             
             controller.setStage(window);
             controller.setTitle("Toang Rồi Ông Giáo Ạ!");
-            controller.setLabel(e.toString());
+            controller.setLabel(e.getMessage());
             controller.setTextArea(sw.toString());
             window.showAndWait();
         } catch (Exception error) {
