@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.github.belivipro9x99.studentsmanager.App;
 import com.github.belivipro9x99.studentsmanager.Components.OSCButton;
+import com.github.belivipro9x99.studentsmanager.Libs.Belibrary;
 import com.github.belivipro9x99.studentsmanager.Objects.GiangVien;
 import com.github.belivipro9x99.studentsmanager.Objects.KhoaController;
 import com.github.belivipro9x99.studentsmanager.Objects.LopHoc;
@@ -141,10 +142,13 @@ public class EditClassController implements Initializable {
 		});
 
 		stcInput.setOnKeyTyped(e -> {
-			if (stcInput.getText() != null && !stcInput.getText().matches("\\d*"))
-				stcInput.setText(stcInput.getText().replaceAll("[^\\d]", ""));
-			
-			lopHoc.setSoTinChi(Integer.parseInt(stcInput.getText()));
+			String value = stcInput.getText();
+			String sVal = Belibrary.sanitizeNumber(value);
+
+			if (value != sVal)
+				stcInput.setText(sVal);
+
+			lopHoc.setSoTinChi(Integer.parseInt(sVal));
 		});
 
 		roomInput.setOnKeyTyped(e -> {

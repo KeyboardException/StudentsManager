@@ -9,6 +9,7 @@ import java.time.ZoneId;
 
 import com.github.belivipro9x99.studentsmanager.App;
 import com.github.belivipro9x99.studentsmanager.Components.OSCButton;
+import com.github.belivipro9x99.studentsmanager.Libs.Belibrary;
 import com.github.belivipro9x99.studentsmanager.Objects.GiangVien;
 import com.github.belivipro9x99.studentsmanager.Objects.KetQua;
 import com.github.belivipro9x99.studentsmanager.Objects.NgayThang;
@@ -174,10 +175,13 @@ public class EditController implements Initializable {
 		});
 
 		phoneInput.setOnKeyTyped(e -> {
-			if (phoneInput.getText() != null && !phoneInput.getText().matches("\\d*"))
-				phoneInput.setText(phoneInput.getText().replaceAll("[^\\d]", ""));
-			
-			nhanSu.setSoDienThoai(phoneInput.getText());
+			String value = phoneInput.getText();
+			String sVal = Belibrary.sanitizeNumber(value);
+
+			if (value != sVal)
+				phoneInput.setText(sVal);
+
+			nhanSu.setSoDienThoai(sVal);
 		});
 
 		emailInput.setOnKeyTyped(e -> { nhanSu.setEmail(emailInput.getText()); });
@@ -188,11 +192,13 @@ public class EditController implements Initializable {
 			homeInput.setOnKeyTyped(e -> { sinhVien.setQueQuan(homeInput.getText()); });
 
 			khoaInput.setOnKeyTyped(e -> {
-				if (khoaInput.getText() != null && !khoaInput.getText().matches("\\d*"))
-					khoaInput.setText(khoaInput.getText().replaceAll("[^\\d]", ""));
+				String value = khoaInput.getText();
+				String sVal = Belibrary.sanitizeNumber(value);
 
-				if (khoaInput.getText().length() > 0)
-					sinhVien.setKhoa(Integer.parseInt(khoaInput.getText()));
+				if (value != sVal)
+					khoaInput.setText(sVal);
+
+				sinhVien.setKhoa(Integer.parseInt(sVal));
 			});
 		} else if (nhanSu instanceof GiangVien) {
 			GiangVien giangVien = (GiangVien) nhanSu;
@@ -253,7 +259,7 @@ public class EditController implements Initializable {
 
 		diemCCInput.setOnKeyTyped(e -> {
 			String value = diemCCInput.getText();
-			String sVal = sanitizeDouble(value);
+			String sVal = Belibrary.sanitizeDouble(value);
 
 			if (value != sVal)
 				diemCCInput.setText(sVal);
@@ -263,7 +269,7 @@ public class EditController implements Initializable {
 
 		diemDKInput.setOnKeyTyped(e -> {
 			String value = diemDKInput.getText();
-			String sVal = sanitizeDouble(value);
+			String sVal = Belibrary.sanitizeDouble(value);
 
 			if (value != sVal)
 				diemDKInput.setText(sVal);
@@ -273,19 +279,12 @@ public class EditController implements Initializable {
 
 		diemHKInput.setOnKeyTyped(e -> {
 			String value = diemHKInput.getText();
-			String sVal = sanitizeDouble(value);
+			String sVal = Belibrary.sanitizeDouble(value);
 
 			if (value != sVal)
 				diemHKInput.setText(sVal);
 
 			ketQua.setDiemHK(Double.parseDouble(sVal));
 		});
-	}
-
-	private String sanitizeDouble(String value) {
-		if (value != null && !value.matches("\\d*\\.*"))
-			value = value.replaceAll("[^\\d\\.]", "");
-
-		return value;
 	}
 }
