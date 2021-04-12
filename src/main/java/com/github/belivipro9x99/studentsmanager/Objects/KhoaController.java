@@ -47,7 +47,9 @@ public class KhoaController {
 		String[] tokens = query.toLowerCase().split(" ");
 		ArrayList<SinhVien> filtered = new ArrayList<SinhVien>();
 
-		for (SinhVien item : khoa.sinhVien)
+		for (SinhVien item : khoa.sinhVien) {
+			Boolean valid = false;
+
 			for (String token : tokens)
 				if (
 						item.getMaSV().toLowerCase().contains(token)
@@ -55,8 +57,15 @@ public class KhoaController {
 					||	item.getEmail().toLowerCase().contains(token)
 					||	item.getSoDienThoai().contains(token)
 				) {
-					filtered.add(item);
+					valid = true;
+				} else {
+					valid = false;
+					break;
 				}
+
+			if (valid)
+				filtered.add(item);
+		}
 
 		return filtered;
 	}
@@ -86,7 +95,9 @@ public class KhoaController {
 		String[] tokens = query.toLowerCase().split(" ");
 		ArrayList<GiangVien> filtered = new ArrayList<GiangVien>();
 
-		for (GiangVien item : khoa.giangVien)
+		for (GiangVien item : khoa.giangVien) {
+			Boolean valid = false;
+
 			for (String token : tokens)
 				if (
 						item.getMaGV().toLowerCase().contains(token)
@@ -94,8 +105,15 @@ public class KhoaController {
 					||	item.getEmail().toLowerCase().contains(token)
 					||	item.getSoDienThoai().contains(token)
 				) {
-					filtered.add(item);
+					valid = true;
+				} else {
+					valid = false;
+					break;
 				}
+
+			if (valid)
+				filtered.add(item);
+		}
 
 		return filtered;
 	}
@@ -125,15 +143,25 @@ public class KhoaController {
 		String[] tokens = query.toLowerCase().split(" ");
 		ArrayList<LopHoc> filtered = new ArrayList<LopHoc>();
 
-		for (LopHoc item : khoa.lopHoc)
+		for (LopHoc item : khoa.lopHoc) {
+			Boolean valid = false;
+
 			for (String token : tokens)
 				if (
 						item.getMaLop().toLowerCase().contains(token)
-					||	item.getPhongHoc().toLowerCase().contains(token)
+					||	item.getMonHoc().toLowerCase().contains(token)
+					||	item.getGiangVien().toString().toLowerCase().contains(token)
 					||	item.getTrangThai().toLowerCase().contains(token)
 				) {
-					filtered.add(item);
+					valid = true;
+				} else {
+					valid = false;
+					break;
 				}
+
+			if (valid)
+				filtered.add(item);
+		}
 
 		return filtered;
 	}
