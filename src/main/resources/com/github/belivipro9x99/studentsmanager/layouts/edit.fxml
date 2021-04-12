@@ -9,6 +9,8 @@
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.belivipro9x99.studentsmanager.Controllers.EditController">
     <children>
 		<HBox styleClass="header">
+			<TriangleBackground color="whitesmoke" scale="4" speed="34" count="32"></TriangleBackground>
+
 			<VBox HBox.hgrow="ALWAYS">
 			   <Label fx:id="mainTitle" text="Current Action" />
 			   <Label fx:id="subTitle" text="Editing Object Info" />

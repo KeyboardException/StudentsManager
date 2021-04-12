@@ -10,3 +10,37 @@
 .root {
 	-fx-font-family: "Nunito";
 }
+
+TabPane > .tab-header-area > .headers-region > .tab:top {
+	-fx-padding: 4px 15px;
+    -fx-background-insets: 2px;
+    -fx-background-radius: 9px 9px 0 0;
+    -fx-background-color: rgb(235, 235, 235);
+}
+
+TabPane > .tab-header-area > .headers-region > .tab:selected:top {
+	-fx-background-color: #d8eaff;
+}
+
+TabPane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+	-fx-alignment: CENTER;
+	-fx-text-fill: #2b2b2b;
+	-fx-font-weight: bold;
+}
+
+TabPane > .tab-header-area > .headers-region > .tab:selected > .tab-container > .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #2381E9;
+    -fx-font-weight: bold;
+}
+
+TabPane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+TabPane > .tab-header-area > .tab-header-background {
+    -fx-background-color: rgb(252, 252, 252);
+    -fx-border-color: #ced1d1;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-insets: 0;
+}

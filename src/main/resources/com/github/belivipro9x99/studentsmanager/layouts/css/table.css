@@ -1,0 +1,25 @@
+/*
+? |-----------------------------------------------------------------------------------------------|
+? |  /css/table.css                                                                               |
+? |                                                                                               |
+? |  Copyright (c) 2021 Belikhun. All right reserved                                              |
+? |  Licensed under the MIT License. See LICENSE in the project root for license information.     |
+? |-----------------------------------------------------------------------------------------------|
+*/
+
+TableView,
+TableView:focused {
+	-fx-background-color: white;
+}
+
+TableView > .column-header-background {
+    -fx-background-color: rgb(232, 232, 232);
+    -fx-background-radius: 18px;
+	-fx-background-insets: 2px;
+    -fx-padding: 3px;
+}
+
+TableView .column-header-background .filler,
+TableView .column-header {
+    -fx-background-color: transparent;
+}

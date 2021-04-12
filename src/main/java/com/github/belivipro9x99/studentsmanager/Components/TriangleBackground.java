@@ -76,6 +76,8 @@ public class TriangleBackground extends Canvas implements Initializable {
 			Double r;
 			if (color == OSCColor.YELLOW || color == OSCColor.ORANGE)
 				r = randBetween(0.3d, 1.8d);
+			else if (color == OSCColor.WHITESMOKE)
+				r = randBetween(0.6d, 0.9d);
 			else
 				r = randBetween(0.9d, 1.6d);
 

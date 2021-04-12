@@ -15,6 +15,7 @@ import com.github.belivipro9x99.studentsmanager.Controllers.EditClassController;
 import com.github.belivipro9x99.studentsmanager.Controllers.EditController;
 import com.github.belivipro9x99.studentsmanager.Controllers.PopupController;
 import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
+import com.github.belivipro9x99.studentsmanager.Libs.Belibrary;
 import com.github.belivipro9x99.studentsmanager.Objects.KetQua;
 import com.github.belivipro9x99.studentsmanager.Objects.KhoaController;
 import com.github.belivipro9x99.studentsmanager.Objects.LopHoc;
@@ -36,7 +37,7 @@ public class App extends Application {
             App.khoaController = new KhoaController();
             FXMLLoader fxmlLoader = loadFXML("main");
             Parent root = fxmlLoader.load();
-            App.scene = new Scene(root, 860, 520);
+            App.scene = new Scene(root, 980, 560);
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
@@ -85,9 +86,9 @@ public class App extends Application {
             controller.setStage(window);
 
             if (isNew)
-                controller.hide(controller.deleteButton);
+                Belibrary.hide(controller.deleteButton);
             else
-                controller.hide(controller.cancelButton);
+                Belibrary.hide(controller.cancelButton);
 
             if (ketQua != null)
                 controller.setEditKetQua(ketQua);
@@ -116,9 +117,9 @@ public class App extends Application {
 
             controller.setStage(window);
             if (isNew)
-                controller.hide(controller.deleteButton);
+                Belibrary.hide(controller.deleteButton);
             else
-                controller.hide(controller.cancelButton);
+                Belibrary.hide(controller.cancelButton);
 
             window.setWidth(800);
             window.setHeight(500);

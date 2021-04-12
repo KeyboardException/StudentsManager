@@ -82,11 +82,6 @@ public class EditClassController implements Initializable {
         });
 	}
 
-	public void hide(Pane pane) {
-		pane.setVisible(false);
-        pane.setManaged(false);
-	}
-
 	public void setLopHoc(LopHoc lopHoc) {
 		this.lopHoc = lopHoc;
 		System.out.println("Got " + lopHoc);

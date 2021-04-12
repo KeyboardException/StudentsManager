@@ -13,14 +13,16 @@
 >
    <children>
       <HBox styleClass="header">
+         <TriangleBackground color="whitesmoke" scale="4" speed="34" count="32"></TriangleBackground>
+
          <VBox HBox.hgrow="ALWAYS">
             <Label fx:id="mainTitle" text="Tên Khoa" />
             <Label fx:id="subTitle" text="Địa Chỉ" />
          </VBox>
-
+         <!-- 
          <VBox>
             <OSCButton icon="pencil" text="CHỈNH SỬA THÔNG TIN"></OSCButton>
-         </VBox>
+         </VBox> -->
       </HBox>
 
       <TabPane VBox.vgrow="ALWAYS">
@@ -28,7 +30,12 @@
             <Tab text="Sinh Viên" closable="false">
                <content>
                   <VBox>
-                     <TableView fx:id="sinhVienTable">
+                     <HBox styleClass="searchBox" fx:id="sinhVienSearchBox" alignment="CENTER">
+                        <TextField promptText="nhập để tìm kiếm" HBox.hgrow="ALWAYS" fx:id="sinhVienSearch" />
+                        <Icon fitHeight="22" icon="search-dark"></Icon>
+                     </HBox>
+
+                     <TableView VBox.vgrow="ALWAYS" fx:id="sinhVienTable">
                      </TableView>
 
                      <OSCButton icon="plus" color="green" count="40" text="THÊM SINH VIÊN" onAction="#addSinhVien"></OSCButton>
@@ -39,7 +46,12 @@
             <Tab text="Giảng Viên" closable="false">
                <content>
                   <VBox>
-                     <TableView fx:id="giangVienTable">
+                     <HBox styleClass="searchBox" fx:id="giangVienSearchBox" alignment="CENTER">
+                        <TextField promptText="nhập để tìm kiếm" HBox.hgrow="ALWAYS" fx:id="giangVienSearch" />
+                        <Icon fitHeight="22" icon="search-dark"></Icon>
+                     </HBox>
+
+                     <TableView VBox.vgrow="ALWAYS" fx:id="giangVienTable">
                      </TableView>
 
                      <OSCButton icon="plus" color="pink" count="40" text="THÊM GIẢNG VIÊN" onAction="#addGiangVien"></OSCButton>
@@ -50,7 +62,12 @@
             <Tab text="Lớp Học" closable="false">
                <content>
                   <VBox>
-                     <TableView fx:id="lopHocTable">
+                     <HBox styleClass="searchBox" fx:id="lopHocSearchBox" alignment="CENTER">
+                        <TextField promptText="nhập để tìm kiếm" HBox.hgrow="ALWAYS" fx:id="lopHocSearch" />
+                        <Icon fitHeight="22" icon="search-dark"></Icon>
+                     </HBox>
+
+                     <TableView VBox.vgrow="ALWAYS" fx:id="lopHocTable">
                      </TableView>
 
                      <OSCButton icon="plus" color="orange" count="40" text="THÊM LỚP HỌC" onAction="#addLopHoc"></OSCButton>
@@ -64,6 +81,7 @@
    <stylesheets>
       <URL value="@css/default.css"></URL>
       <URL value="@css/button.css"></URL>
+      <URL value="@css/table.css"></URL>
       <URL value="@css/main.css"></URL>
    </stylesheets>
 </VBox>

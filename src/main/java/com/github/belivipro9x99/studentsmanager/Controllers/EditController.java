@@ -72,26 +72,22 @@ public class EditController implements Initializable {
         System.out.println("Loading " + this.getClass().getName());
     }
 
-	public void show(Pane pane) {
-		pane.setVisible(true);
-        pane.setManaged(true);
-	}
-
-	public void hide(Pane pane) {
-		pane.setVisible(false);
-        pane.setManaged(false);
-	}
-
 	public void setNhanSu(NhanSu nhanSu) {
 		this.nhanSu = nhanSu;
 		System.out.println("Got " + nhanSu);
-		hide(sinhVienKetQuaBox);
 
-		if (nhanSu instanceof SinhVien) {
-			hide(giangVienBox);
-		} else if (nhanSu instanceof GiangVien) {
-			hide(sinhVienBox);
-		}
+		// Ẩn tất cả các Box để đoạn sau kiểm tra và hiện lại
+		// Box cần dùng
+		Belibrary.hide(sinhVienKetQuaBox);
+		Belibrary.hide(sinhVienBox);
+		Belibrary.hide(giangVienBox);
+
+		if (nhanSu instanceof SinhVien)
+			// Nếu là sinh viên, hiện sinhVienBox
+			Belibrary.show(sinhVienBox);
+		else if (nhanSu instanceof GiangVien)
+			// Nếu là giảng viên, hiện giangVienBox
+			Belibrary.show(giangVienBox);
 
 		updateHeader();
 		updateInputValue();
@@ -107,6 +103,9 @@ public class EditController implements Initializable {
 			GiangVien giangVien = (GiangVien) nhanSu;
 			mainTitle.setText("Chỉnh Sửa Thông Tin Giảng Viên");
 			subTitle.setText("Giảng Viên " + giangVien.getTen() + ". Mã GV: " + giangVien.getMaGV());
+		} else {
+			mainTitle.setText("Chỉnh Sửa Thông Tin Nhân Sự");
+			subTitle.setText(nhanSu.getClass().getSimpleName());
 		}
 	}
 
@@ -251,7 +250,7 @@ public class EditController implements Initializable {
 		if (!(nhanSu instanceof SinhVien))
 			return;
 
-		show(sinhVienKetQuaBox);
+		Belibrary.show(sinhVienKetQuaBox);
 		sinhVienKetQuaLabel.setText("CHỈNH SỬA ĐIỂM CỦA LỚP " + ketQua.getMaLop());
 		diemCCInput.setText(String.valueOf(ketQua.diemCC));
 		diemDKInput.setText(String.valueOf(ketQua.diemDK));

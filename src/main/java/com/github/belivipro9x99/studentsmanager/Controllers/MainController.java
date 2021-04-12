@@ -11,13 +11,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 
 import com.github.belivipro9x99.studentsmanager.Objects.KhoaController;
 import com.github.belivipro9x99.studentsmanager.Objects.LopHoc;
 import com.github.belivipro9x99.studentsmanager.Objects.SinhVien;
 import com.github.belivipro9x99.studentsmanager.App;
 import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
+import com.github.belivipro9x99.studentsmanager.Libs.Belibrary;
 import com.github.belivipro9x99.studentsmanager.Objects.GiangVien;
 
 public class MainController implements Initializable {
@@ -28,12 +32,29 @@ public class MainController implements Initializable {
     public TableView<GiangVien> giangVienTable;
     public TableView<LopHoc> lopHocTable;
 
+    public HBox sinhVienSearchBox;
+    public TextField sinhVienSearch;
+    public String sinhVienQuery;
+
+    public HBox giangVienSearchBox;
+    public TextField giangVienSearch;
+    public String giangVienQuery;
+
+    public HBox lopHocSearchBox;
+    public TextField lopHocSearch;
+    public String lopHocQuery;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Loading " + this.getClass().getName());
 
         mainTitle.setText(KhoaController.khoa.ten);
         subTitle.setText(KhoaController.khoa.diaChi);
+
+        // Ẩn hộp tìm kiếm 👀
+        Belibrary.hide(sinhVienSearchBox);
+        Belibrary.hide(giangVienSearchBox);
+        Belibrary.hide(lopHocSearchBox);
 
         sinhVienTable.setRowFactory(tv -> {
             TableRow<SinhVien> row = new TableRow<>();
@@ -117,6 +138,7 @@ public class MainController implements Initializable {
 
         TableColumn<SinhVien, String> idColumn = new TableColumn<>("Mã SV");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("maSV"));
+        idColumn.setMinWidth(120);
         columnList.add(idColumn);
 
         TableColumn<SinhVien, String> surnameColumn = new TableColumn<>("Họ");
@@ -152,11 +174,19 @@ public class MainController implements Initializable {
         khoaColumn.setCellValueFactory(new PropertyValueFactory<>("khoa"));
         columnList.add(khoaColumn);
 
+        // Handle event người dùng nhập vào ô tìm kiếm
+        // Khi người dùng nhập chữ vào ô thực hiện lưu đoạn query
+        // và update bảng với query
+        sinhVienSearch.setOnKeyTyped(e -> {
+			sinhVienQuery = sinhVienSearch.getText();
+            updateSinhVienTable();
+		});
+
         updateSinhVienTable();
     }
 
     public void updateSinhVienTable() {
-        ObservableList<SinhVien> list = FXCollections.observableArrayList(KhoaController.getSinhVienList());
+        ObservableList<SinhVien> list = FXCollections.observableArrayList(KhoaController.getSinhVienList(sinhVienQuery));
         sinhVienTable.setItems(list);
         sinhVienTable.refresh();
     }
@@ -194,6 +224,7 @@ public class MainController implements Initializable {
 
         TableColumn<GiangVien, String> idColumn = new TableColumn<>("Mã GV");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("maGV"));
+        idColumn.setMinWidth(120);
         columnList.add(idColumn);
 
         TableColumn<GiangVien, String> surnameColumn = new TableColumn<>("Họ");
@@ -225,11 +256,19 @@ public class MainController implements Initializable {
         trinhDoColumn.setCellValueFactory(new PropertyValueFactory<>("trinhDoHocVan"));
         columnList.add(trinhDoColumn);
 
+        // Handle event người dùng nhập vào ô tìm kiếm
+        // Khi người dùng nhập chữ vào ô thực hiện lưu đoạn query
+        // và update bảng với query
+        giangVienSearch.setOnKeyTyped(e -> {
+			giangVienQuery = giangVienSearch.getText();
+            updateGiangVienTable();
+		});
+
         updateGiangVienTable();
     }
 
     public void updateGiangVienTable() {
-        ObservableList<GiangVien> list = FXCollections.observableArrayList(KhoaController.getGiangVienList());
+        ObservableList<GiangVien> list = FXCollections.observableArrayList(KhoaController.getGiangVienList(giangVienQuery));
         giangVienTable.setItems(list);
         giangVienTable.refresh();
     }
@@ -267,6 +306,7 @@ public class MainController implements Initializable {
 
         TableColumn<LopHoc, String> idColumn = new TableColumn<>("Mã Lớp");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("maLop"));
+        idColumn.setMinWidth(120);
         columnList.add(idColumn);
 
         TableColumn<LopHoc, String> subjColumn = new TableColumn<>("Môn Học");
@@ -289,11 +329,19 @@ public class MainController implements Initializable {
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("trangThai"));
         columnList.add(statusColumn);
 
+        // Handle event người dùng nhập vào ô tìm kiếm
+        // Khi người dùng nhập chữ vào ô thực hiện lưu đoạn query
+        // và update bảng với query
+        lopHocSearch.setOnKeyTyped(e -> {
+			lopHocQuery = lopHocSearch.getText();
+            updateLopHocTable();
+		});
+
         updateLopHocTable();
     }
 
     public void updateLopHocTable() {
-        ObservableList<LopHoc> list = FXCollections.observableArrayList(KhoaController.getLopHocList());
+        ObservableList<LopHoc> list = FXCollections.observableArrayList(KhoaController.getLopHocList(lopHocQuery));
         lopHocTable.setItems(list);
         lopHocTable.refresh();
     }

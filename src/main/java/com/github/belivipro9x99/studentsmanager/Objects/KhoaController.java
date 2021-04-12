@@ -40,6 +40,27 @@ public class KhoaController {
 		return khoa.sinhVien;
 	}
 
+	public static ArrayList<SinhVien> getSinhVienList(String query) {
+		if (query == null || query.length() == 0 || query == "")
+			return getSinhVienList();
+
+		String[] tokens = query.toLowerCase().split(" ");
+		ArrayList<SinhVien> filtered = new ArrayList<SinhVien>();
+
+		for (SinhVien item : khoa.sinhVien)
+			for (String token : tokens)
+				if (
+						item.getMaSV().toLowerCase().contains(token)
+					||	item.getTen().toLowerCase().contains(token)
+					||	item.getEmail().toLowerCase().contains(token)
+					||	item.getSoDienThoai().contains(token)
+				) {
+					filtered.add(item);
+				}
+
+		return filtered;
+	}
+
 	public static void removeSinhVien(SinhVien sinhVien) {
 		khoa.sinhVien.remove(sinhVien);
 		safeSave();
@@ -58,6 +79,27 @@ public class KhoaController {
 		return khoa.giangVien;
 	}
 
+	public static ArrayList<GiangVien> getGiangVienList(String query) {
+		if (query == null || query.length() == 0 || query == "")
+			return getGiangVienList();
+
+		String[] tokens = query.toLowerCase().split(" ");
+		ArrayList<GiangVien> filtered = new ArrayList<GiangVien>();
+
+		for (GiangVien item : khoa.giangVien)
+			for (String token : tokens)
+				if (
+						item.getMaGV().toLowerCase().contains(token)
+					||	item.getTen().toLowerCase().contains(token)
+					||	item.getEmail().toLowerCase().contains(token)
+					||	item.getSoDienThoai().contains(token)
+				) {
+					filtered.add(item);
+				}
+
+		return filtered;
+	}
+
 	public static void removeGiangVien(GiangVien giangVien) {
 		khoa.giangVien.remove(giangVien);
 		safeSave();
@@ -74,6 +116,26 @@ public class KhoaController {
 
 	public static ArrayList<LopHoc> getLopHocList() {
 		return khoa.lopHoc;
+	}
+
+	public static ArrayList<LopHoc> getLopHocList(String query) {
+		if (query == null || query.length() == 0 || query == "")
+			return getLopHocList();
+
+		String[] tokens = query.toLowerCase().split(" ");
+		ArrayList<LopHoc> filtered = new ArrayList<LopHoc>();
+
+		for (LopHoc item : khoa.lopHoc)
+			for (String token : tokens)
+				if (
+						item.getMaLop().toLowerCase().contains(token)
+					||	item.getPhongHoc().toLowerCase().contains(token)
+					||	item.getTrangThai().toLowerCase().contains(token)
+				) {
+					filtered.add(item);
+				}
+
+		return filtered;
 	}
 
 	public static void removeLopHoc(LopHoc lopHoc) {
