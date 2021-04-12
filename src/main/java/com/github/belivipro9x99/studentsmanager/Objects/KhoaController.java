@@ -56,6 +56,7 @@ public class KhoaController {
 					||	item.getTen().toLowerCase().contains(token)
 					||	item.getEmail().toLowerCase().contains(token)
 					||	item.getSoDienThoai().contains(token)
+					||	String.valueOf(item.getKhoa()).contains(token)
 				) {
 					valid = true;
 				} else {
