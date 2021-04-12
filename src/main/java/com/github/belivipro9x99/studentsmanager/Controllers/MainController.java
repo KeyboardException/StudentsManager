@@ -52,9 +52,9 @@ public class MainController implements Initializable {
         subTitle.setText(KhoaController.khoa.diaChi);
 
         // Ẩn hộp tìm kiếm 👀
-        //Belibrary.hide(sinhVienSearchBox);
-        //Belibrary.hide(giangVienSearchBox);
-        //Belibrary.hide(lopHocSearchBox);
+        Belibrary.hide(sinhVienSearchBox);
+        Belibrary.hide(giangVienSearchBox);
+        Belibrary.hide(lopHocSearchBox);
 
         sinhVienTable.setRowFactory(tv -> {
             TableRow<SinhVien> row = new TableRow<>();
