@@ -22,7 +22,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -197,7 +196,8 @@ public class EditController implements Initializable {
 				if (value != sVal)
 					khoaInput.setText(sVal);
 
-				sinhVien.setKhoa(Integer.parseInt(sVal));
+				if (sVal.length() > 0)
+					sinhVien.setKhoa(Integer.parseInt(sVal));
 			});
 		} else if (nhanSu instanceof GiangVien) {
 			GiangVien giangVien = (GiangVien) nhanSu;
@@ -263,7 +263,8 @@ public class EditController implements Initializable {
 			if (value != sVal)
 				diemCCInput.setText(sVal);
 
-			ketQua.setDiemCC(Double.parseDouble(sVal));
+			if (sVal.length() > 0)
+				ketQua.setDiemCC(Double.parseDouble(sVal));
 		});
 
 		diemDKInput.setOnKeyTyped(e -> {
@@ -273,7 +274,8 @@ public class EditController implements Initializable {
 			if (value != sVal)
 				diemDKInput.setText(sVal);
 
-			ketQua.setDiemDK(Double.parseDouble(sVal));
+			if (sVal.length() > 0)
+				ketQua.setDiemDK(Double.parseDouble(sVal));
 		});
 
 		diemHKInput.setOnKeyTyped(e -> {
@@ -283,7 +285,8 @@ public class EditController implements Initializable {
 			if (value != sVal)
 				diemHKInput.setText(sVal);
 
-			ketQua.setDiemHK(Double.parseDouble(sVal));
+			if (sVal.length() > 0)
+				ketQua.setDiemHK(Double.parseDouble(sVal));
 		});
 	}
 }

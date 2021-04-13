@@ -133,6 +133,14 @@ public class KhoaController {
 		safeSave();
 	}
 
+	public static LopHoc getLopHoc(String maLop) {
+		for (LopHoc lopHoc : getLopHocList())
+			if (lopHoc.maLop == maLop)
+				return lopHoc;
+
+		return null;
+	}
+
 	public static ArrayList<LopHoc> getLopHocList() {
 		return khoa.lopHoc;
 	}

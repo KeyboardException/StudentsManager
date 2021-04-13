@@ -8,7 +8,7 @@ public class Belibrary {
 			value = value.replaceAll("[^\\d]", "");
 
 		if (value == null || value == "" || value.length() == 0)
-			return "0";
+			return "";
 
 		return value;
 	}
@@ -18,7 +18,7 @@ public class Belibrary {
 			value = value.replaceAll("[^\\d\\.]", "");
 
 		if (value == null || value == "" || value.length() == 0)
-			return "0";
+			return "";
 
 		return value;
 	}

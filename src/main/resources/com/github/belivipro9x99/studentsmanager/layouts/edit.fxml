@@ -7,48 +7,48 @@
 <?import com.github.belivipro9x99.studentsmanager.Components.*?>
 
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.belivipro9x99.studentsmanager.Controllers.EditController">
-    <children>
+	<children>
 		<HBox styleClass="header">
 			<TriangleBackground color="whitesmoke" scale="4" speed="34" count="32"></TriangleBackground>
 
 			<VBox HBox.hgrow="ALWAYS">
-			   <Label fx:id="mainTitle" text="Current Action" />
-			   <Label fx:id="subTitle" text="Editing Object Info" />
+				<Label fx:id="mainTitle" text="Current Action" />
+				<Label fx:id="subTitle" text="Editing Object Info" />
 			</VBox>
 		</HBox>
-		 
+
 		<HBox styleClass="form" VBox.vgrow="ALWAYS">
 			<VBox HBox.hgrow="ALWAYS">
 				<Label text="Họ Tên" />
-                <TextField fx:id="nameInput" />
+				<TextField fx:id="nameInput" />
 				<Region prefHeight="10.0" />
 
 				<Label text="Ngày Sinh" />
-                <DatePicker fx:id="dobInput" maxWidth="Infinity" />
+				<DatePicker fx:id="dobInput" maxWidth="Infinity" />
 				<Region prefHeight="10.0" />
-				
+
 				<Label text="Giới Tính" />
 				<HBox>
 					<RadioButton fx:id="maleButton" text="Nam">
 						<toggleGroup>
-							<ToggleGroup fx:id="genderGroup"/>
+							<ToggleGroup fx:id="genderGroup" />
 						</toggleGroup>
-					 </RadioButton>
-					 <Region prefWidth="20.0" />
-					 <RadioButton fx:id="femaleButton" text="Nữ">
+					</RadioButton>
+					<Region prefWidth="20.0" />
+					<RadioButton fx:id="femaleButton" text="Nữ">
 						<toggleGroup>
-							<fx:reference source="genderGroup"/>
+							<fx:reference source="genderGroup" />
 						</toggleGroup>
-					 </RadioButton>
+					</RadioButton>
 				</HBox>
 				<Region prefHeight="10.0" />
 
 				<Label text="Số Điện Thoại" />
-                <TextField fx:id="phoneInput" />
+				<TextField fx:id="phoneInput" />
 				<Region prefHeight="10.0" />
 
 				<Label text="Email" />
-                <TextField fx:id="emailInput" />
+				<TextField fx:id="emailInput" />
 				<Region prefHeight="10.0" />
 			</VBox>
 
@@ -57,26 +57,26 @@
 					<Label text="Quê Quán" />
 					<TextField fx:id="homeInput" />
 					<Region prefHeight="10.0" />
-	
+
 					<Label text="Khóa" />
 					<TextField fx:id="khoaInput" />
 					<Region prefHeight="10.0" />
 
 					<VBox fx:id="sinhVienKetQuaBox">
 						<Label fx:id="sinhVienKetQuaLabel" styleClass="resultLabel" />
-	
+
 						<HBox prefWidth="0" spacing="10">
 							<VBox HBox.hgrow="ALWAYS">
 								<Label text="Điểm Chuyên Cần" />
 								<TextField fx:id="diemCCInput" />
 							</VBox>
-		
+
 							<VBox HBox.hgrow="ALWAYS">
 								<Label text="Điểm Điều Kiện" />
 								<TextField fx:id="diemDKInput" />
 							</VBox>
 						</HBox>
-						
+
 						<Region prefHeight="10.0" />
 						<Label text="Điểm Học Kì" />
 						<TextField fx:id="diemHKInput" />
@@ -88,28 +88,28 @@
 					<VBox>
 						<RadioButton fx:id="tdThSButton" text="Thạc Sĩ">
 							<toggleGroup>
-								<ToggleGroup fx:id="trinhDoGroup"/>
+								<ToggleGroup fx:id="trinhDoGroup" />
 							</toggleGroup>
 						</RadioButton>
 						<Region prefHeight="5.0" />
 
 						<RadioButton fx:id="tdTSButton" text="Tiến Sĩ">
 							<toggleGroup>
-								<fx:reference source="trinhDoGroup"/>
+								<fx:reference source="trinhDoGroup" />
 							</toggleGroup>
 						</RadioButton>
 						<Region prefHeight="5.0" />
 
 						<RadioButton fx:id="tdPGSButton" text="Phó Giáo Sư">
 							<toggleGroup>
-								<fx:reference source="trinhDoGroup"/>
+								<fx:reference source="trinhDoGroup" />
 							</toggleGroup>
 						</RadioButton>
 						<Region prefHeight="5.0" />
 
 						<RadioButton fx:id="tdGSButton" text="Giáo Sư">
 							<toggleGroup>
-								<fx:reference source="trinhDoGroup"/>
+								<fx:reference source="trinhDoGroup" />
 							</toggleGroup>
 						</RadioButton>
 					</VBox>
@@ -124,12 +124,12 @@
 			<OSCButton fx:id="cancelButton" color="yellow" icon="times" text="HỦY" onAction="#userCancel"></OSCButton>
 			<OSCButton fx:id="deleteButton" color="red" icon="trash" text="XÓA" onAction="#userDelete"></OSCButton>
 		</HBox>
-    </children>
+	</children>
 
-    <stylesheets>
+	<stylesheets>
 		<URL value="@css/default.css"></URL>
 		<URL value="@css/button.css"></URL>
 		<URL value="@css/input.css"></URL>
 		<URL value="@css/edit.css"></URL>
-	 </stylesheets>
+	</stylesheets>
 </VBox>

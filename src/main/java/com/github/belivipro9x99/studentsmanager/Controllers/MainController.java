@@ -6,7 +6,10 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -14,7 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import com.github.belivipro9x99.studentsmanager.Objects.KhoaController;
 import com.github.belivipro9x99.studentsmanager.Objects.LopHoc;
@@ -372,5 +375,57 @@ public class MainController implements Initializable {
         }
 
         updateLopHocTable();
+    }
+
+    // =================== THAO TÁC ===================
+
+    public void showSinhVienKetQua() {
+        SinhVien sinhVien = App.askForChoice(KhoaController.getSinhVienList(), "Chọn Sinh Viên Muốn Xem", App.primaryStage);
+
+		if (sinhVien == null)
+			return;
+
+        try {
+            FXMLLoader fxmlLoader = App.loadFXML("sinhVienKetQua");
+            Parent root = fxmlLoader.load();
+            SinhVienKetQuaController controller = fxmlLoader.getController();
+            
+            Scene scene = new Scene(root);
+            Stage window = App.createMoralWindow(scene, "SinhVienKetQua", App.primaryStage);
+    
+            controller.setStage(window);
+            controller.setSinhVien(sinhVien);
+    
+            window.setWidth(800);
+            window.setHeight(500);
+            window.showAndWait();
+        } catch (Exception e) {
+            ExceptionHandler.handle(e);
+        }
+    }
+
+    public void showGiangVienLopHoc() {
+        GiangVien giangVien = App.askForChoice(KhoaController.getGiangVienList(), "Chọn Giảng Viên Muốn Xem", App.primaryStage);
+
+		if (giangVien == null)
+			return;
+
+        try {
+            FXMLLoader fxmlLoader = App.loadFXML("giangVienLopHoc");
+            Parent root = fxmlLoader.load();
+            GiangVienLopHocController controller = fxmlLoader.getController();
+            
+            Scene scene = new Scene(root);
+            Stage window = App.createMoralWindow(scene, "GiangVienLopHoc", App.primaryStage);
+    
+            controller.setStage(window);
+            controller.setGiangVien(giangVien);
+    
+            window.setWidth(800);
+            window.setHeight(500);
+            window.showAndWait();
+        } catch (Exception e) {
+            ExceptionHandler.handle(e);
+        }
     }
 }

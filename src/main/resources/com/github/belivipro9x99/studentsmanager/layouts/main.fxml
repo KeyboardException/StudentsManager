@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets ?>
 <?import com.github.belivipro9x99.studentsmanager.Components.*?>
 
 <VBox
@@ -27,6 +28,23 @@
 
       <TabPane VBox.vgrow="ALWAYS">
          <tabs>
+            <Tab text="Thao Tác" closable="false">
+               <content>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <VBox spacing="10">
+                           <OSCButton icon="table" color="blue" count="40" text="Danh Sách Kết Quả Của Sinh Viên" onAction="#showSinhVienKetQua"></OSCButton>
+                           <OSCButton icon="table" color="blue" count="40" text="Danh Sách Lớp Học Của Giảng Viên" onAction="#showGiangVienLopHoc"></OSCButton>
+                        </VBox>
+                     </children>
+
+                     <padding>
+                        <Insets top="60" right="20" bottom="60" left="20"/>
+                    </padding>
+                  </HBox>
+               </content>
+            </Tab>
+
             <Tab text="Sinh Viên" closable="false">
                <content>
                   <VBox>
