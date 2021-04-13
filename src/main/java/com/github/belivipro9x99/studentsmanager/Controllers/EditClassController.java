@@ -142,7 +142,8 @@ public class EditClassController implements Initializable {
 			if (value != sVal)
 				stcInput.setText(sVal);
 
-			lopHoc.setSoTinChi(Integer.parseInt(sVal));
+			if (sVal.length() > 0)
+				lopHoc.setSoTinChi(Integer.parseInt(sVal));
 		});
 
 		roomInput.setOnKeyTyped(e -> {
