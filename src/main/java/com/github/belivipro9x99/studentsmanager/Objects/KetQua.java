@@ -12,8 +12,7 @@ public class KetQua implements Serializable {
         this.maLop = maLop;
     }
 
-    public KetQua(String maLop, Double diemCC, Double diemDK, Double diemHK) 
-    {
+    public KetQua(String maLop, Double diemCC, Double diemDK, Double diemHK) {
         this.maLop = maLop;
         this.diemCC = diemCC;
         this.diemDK = diemDK;

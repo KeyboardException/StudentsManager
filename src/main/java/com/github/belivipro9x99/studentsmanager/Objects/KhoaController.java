@@ -128,7 +128,7 @@ public class KhoaController {
 		for (LopHoc item: getLopHocList())
 			if (item.maLop.equals(lopHoc.maLop))
 				throw new LopHocExistException(item);
-
+		
 		khoa.lopHoc.add(lopHoc);
 		safeSave();
 	}

@@ -25,7 +25,6 @@ import com.github.belivipro9x99.studentsmanager.Objects.NhanSu;
  * JavaFX App
  */
 public class App extends Application {
-
     public static Stage primaryStage;
     private static Scene scene;
     public static KhoaController khoaController;
