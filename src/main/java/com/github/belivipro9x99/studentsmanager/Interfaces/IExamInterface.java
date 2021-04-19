@@ -1,6 +1,6 @@
 package com.github.belivipro9x99.studentsmanager.Interfaces;
 
 public interface IExamInterface {
-	public Double dienTich();
-	public String kichThuoc();
+	public Double getDienTich();
+	public String getKichThuoc();
 }

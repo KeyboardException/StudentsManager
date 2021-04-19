@@ -24,7 +24,7 @@ import com.github.belivipro9x99.studentsmanager.Objects.LopHoc;
 import com.github.belivipro9x99.studentsmanager.Objects.SinhVien;
 import com.github.belivipro9x99.studentsmanager.App;
 import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
-import com.github.belivipro9x99.studentsmanager.Libs.Belibrary;
+import com.github.belivipro9x99.studentsmanager.Objects.BanHoc;
 import com.github.belivipro9x99.studentsmanager.Objects.GiangVien;
 
 public class MainController implements Initializable {
@@ -34,6 +34,7 @@ public class MainController implements Initializable {
     public TableView<SinhVien> sinhVienTable;
     public TableView<GiangVien> giangVienTable;
     public TableView<LopHoc> lopHocTable;
+    public TableView<BanHoc> banHocTable;
 
     public HBox sinhVienSearchBox;
     public TextField sinhVienSearch;
@@ -131,11 +132,47 @@ public class MainController implements Initializable {
             return row;
         });
 
+        // Thêm bộ lắng nghe khi nhấn đúp chuột vào một hàng trong bảng
+        // banHoc
+        banHocTable.setRowFactory(tv -> {
+            TableRow<BanHoc> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                // Kiểm tra số lần click liên tiếp là 2 và
+                // hàng không chứa dữ liệu trống
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                    // Lấy object banHoc được nhấn đúp chuột
+                    BanHoc banHoc = row.getItem();
+
+                    // Mở cửa sổ edit bàn học
+                    String action = App.editBanHoc(banHoc, false);
+
+                    // Nếu người dùng nhấn nút XÓA, thực hiện xóa
+                    // bàn học khỏi danh sách
+                    switch (action) {
+                        case "delete":
+                            KhoaController.removeBanHoc(banHoc);
+                            break;
+                    
+                        default:
+                            break;
+                    }
+
+                    updateBanHoc();
+                    KhoaController.safeSave();
+                }
+            });
+
+            return row;
+        });
+
         setupSinhVienTable();
         setupGiangVienTable();
         setupLopHocTable();
+
+        setupBanHoc();
     }
 
+    //* ======================= SINH VIÊN =======================
     public void setupSinhVienTable() {
         ObservableList<TableColumn<SinhVien, ?>> columnList = sinhVienTable.getColumns();
 
@@ -222,6 +259,7 @@ public class MainController implements Initializable {
         updateSinhVienTable();
     }
 
+    //* ======================= GIẢNG VIÊN =======================
     public void setupGiangVienTable() {
         ObservableList<TableColumn<GiangVien, ?>> columnList = giangVienTable.getColumns();
 
@@ -304,6 +342,7 @@ public class MainController implements Initializable {
         updateGiangVienTable();
     }
 
+    //* ======================= LỚP HỌC =======================
     public void setupLopHocTable() {
         ObservableList<TableColumn<LopHoc, ?>> columnList = lopHocTable.getColumns();
 
@@ -377,8 +416,69 @@ public class MainController implements Initializable {
         updateLopHocTable();
     }
 
-    // =================== THAO TÁC ===================
+    //* ======================= BÀN HỌC =======================
+    public void setupBanHoc() {
+        ObservableList<TableColumn<BanHoc, ?>> columnList = banHocTable.getColumns();
 
+        TableColumn<BanHoc, String> classColumn = new TableColumn<>("Phòng Học");
+        classColumn.setCellValueFactory(new PropertyValueFactory<>("phongHoc"));
+        classColumn.setMinWidth(120);
+        columnList.add(classColumn);
+
+        TableColumn<BanHoc, String> hangSXColumn = new TableColumn<>("Hãng Sản Xuất");
+        hangSXColumn.setCellValueFactory(new PropertyValueFactory<>("hangSX"));
+        columnList.add(hangSXColumn);
+
+        TableColumn<BanHoc, Double> donGiaColumn = new TableColumn<>("Đơn Giá");
+        donGiaColumn.setCellValueFactory(new PropertyValueFactory<>("donGia"));
+        columnList.add(donGiaColumn);
+
+        TableColumn<BanHoc, Double> soLuongColumn = new TableColumn<>("Số Lượng");
+        soLuongColumn.setCellValueFactory(new PropertyValueFactory<>("soLuong"));
+        columnList.add(soLuongColumn);
+
+        TableColumn<BanHoc, Double> giaTriColumn = new TableColumn<>("Giá Trị");
+        giaTriColumn.setCellValueFactory(new PropertyValueFactory<>("giaTri"));
+        columnList.add(giaTriColumn);
+
+        TableColumn<BanHoc, String> kichThuocColumn = new TableColumn<>("Kích Thước");
+        kichThuocColumn.setCellValueFactory(new PropertyValueFactory<>("kichThuoc"));
+        columnList.add(kichThuocColumn);
+
+        TableColumn<BanHoc, Double> dienTichColumn = new TableColumn<>("Diện Tích");
+        dienTichColumn.setCellValueFactory(new PropertyValueFactory<>("dienTich"));
+        columnList.add(dienTichColumn);
+
+        updateBanHoc();
+    }
+
+    public void updateBanHoc() {
+        ObservableList<BanHoc> list = FXCollections.observableArrayList(KhoaController.getBanHocList());
+        banHocTable.setItems(list);
+        banHocTable.refresh();
+    }
+
+    public void addBanHoc() {
+        BanHoc banHoc = new BanHoc();
+        String action = App.editBanHoc(banHoc, true);
+
+        switch (action) {
+            case "submit":
+                try {
+                    KhoaController.addBanHoc(banHoc);
+                } catch (Exception e) {
+                    ExceptionHandler.handle(e);
+                }
+                break;
+                
+            default:
+                break;
+        }
+
+        updateBanHoc();
+    }
+    
+    //? =================== THAO TÁC ===================
     public void showSinhVienKetQua() {
         SinhVien sinhVien = App.askForChoice(KhoaController.getSinhVienList(), "Chọn Sinh Viên Muốn Xem", App.primaryStage);
 

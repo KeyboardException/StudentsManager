@@ -11,11 +11,13 @@ import javafx.stage.Modality;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.github.belivipro9x99.studentsmanager.Controllers.EditBanHocController;
 import com.github.belivipro9x99.studentsmanager.Controllers.EditClassController;
 import com.github.belivipro9x99.studentsmanager.Controllers.EditController;
 import com.github.belivipro9x99.studentsmanager.Controllers.PopupController;
 import com.github.belivipro9x99.studentsmanager.Exception.ExceptionHandler;
 import com.github.belivipro9x99.studentsmanager.Libs.Belibrary;
+import com.github.belivipro9x99.studentsmanager.Objects.BanHoc;
 import com.github.belivipro9x99.studentsmanager.Objects.KetQua;
 import com.github.belivipro9x99.studentsmanager.Objects.KhoaController;
 import com.github.belivipro9x99.studentsmanager.Objects.LopHoc;
@@ -113,6 +115,34 @@ public class App extends Application {
 
             Scene scene = new Scene(root);
             Stage window = createMoralWindow(scene, "Đang Chỉnh Sửa " + lopHoc.getClass().getName(), App.primaryStage);
+
+            controller.setStage(window);
+            if (isNew)
+                Belibrary.hide(controller.deleteButton);
+            else
+                Belibrary.hide(controller.cancelButton);
+
+            window.setWidth(800);
+            window.setHeight(500);
+            window.showAndWait();
+
+            return controller.userAction;
+        } catch (IOException e) {
+            ExceptionHandler.handle(e);
+        }
+
+        return null;
+    }
+
+    public static String editBanHoc(BanHoc banHoc, Boolean isNew) {
+        try {
+            FXMLLoader fxmlLoader = loadFXML("editBanHoc");
+            Parent root = fxmlLoader.load();
+            EditBanHocController controller = fxmlLoader.getController();
+            controller.setBanHoc(banHoc);
+
+            Scene scene = new Scene(root);
+            Stage window = createMoralWindow(scene, "Đang Chỉnh Sửa " + banHoc.getClass().getName(), App.primaryStage);
 
             controller.setStage(window);
             if (isNew)
