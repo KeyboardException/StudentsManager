@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import com.github.belivipro9x99.studentsmanager.Components.*?>
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.belivipro9x99.studentsmanager.Controllers.EditBanHocController">
+    <children>
+		<HBox styleClass="header">
+			<TriangleBackground color="whitesmoke" scale="4" speed="34" count="32"></TriangleBackground>
+
+			<VBox HBox.hgrow="ALWAYS">
+			   <Label fx:id="mainTitle" text="Chỉnh Sửa Bàn Học" />
+			</VBox>
+		</HBox>
+		 
+		<HBox styleClass="form" VBox.vgrow="ALWAYS">
+			<!-- Box Bên Trái -->
+			<VBox HBox.hgrow="ALWAYS">
+				<Label text="Phòng Học" />
+                <TextField fx:id="phongHocInput" />
+				<Region prefHeight="10.0" />
+
+				<Label text="Hãng SX" />
+                <TextField fx:id="hangSXInput" />
+				<Region prefHeight="10.0" />
+
+				<Label text="Đơn Giá" />
+                <TextField fx:id="donGiaInput" />
+				<Region prefHeight="10.0" />
+			</VBox>
+
+			<!-- Box Bên Phải -->
+			<VBox HBox.hgrow="ALWAYS">
+				<Label text="Số Lượng" />
+                <TextField fx:id="soLuongInput" />
+				<Region prefHeight="10.0" />
+
+				<Label text="Chiều Dài" />
+                <TextField fx:id="chieuDaiInput" />
+				<Region prefHeight="10.0" />
+
+				<Label text="Chiều Rộng" />
+                <TextField fx:id="chieuRongInput" />
+				<Region prefHeight="10.0" />
+			</VBox>
+		</HBox>
+
+		<HBox spacing="10" styleClass="footer">
+			<Region HBox.hgrow="ALWAYS"></Region>
+
+			<OSCButton color="blue" icon="save" text="LƯU" onAction="#userSubmit"></OSCButton>
+			<OSCButton fx:id="cancelButton" color="yellow" icon="times" text="HỦY" onAction="#userCancel"></OSCButton>
+			<OSCButton fx:id="deleteButton" color="red" icon="trash" text="XÓA" onAction="#userDelete"></OSCButton>
+		</HBox>
+    </children>
+
+    <stylesheets>
+		<URL value="@css/default.css"></URL>
+		<URL value="@css/button.css"></URL>
+		<URL value="@css/table.css"></URL>
+		<URL value="@css/input.css"></URL>
+		<URL value="@css/edit.css"></URL>
+	 </stylesheets>
+</VBox>

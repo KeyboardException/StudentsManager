@@ -98,6 +98,10 @@ public class NhanSu implements Serializable {
 		this.ngaySinh = ngaySinh;
 	}
 
+	public Double tinhLuong() {
+		return 0d;
+	}
+
 	@Override
 	public String toString() {
 		return ten;

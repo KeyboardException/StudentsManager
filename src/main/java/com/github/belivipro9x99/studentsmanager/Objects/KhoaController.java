@@ -27,6 +27,7 @@ public class KhoaController {
 			KhoaController.load();
 	}
 
+	//* ======================= CÁC HÀM PROCESS SINH VIÊN =======================
 	public static void addSinhVien(SinhVien sinhVien) throws SinhVienExistException {
 		for (SinhVien item: getSinhVienList())
 			if (item.getMaSV().equals(sinhVien.getMaSV()))
@@ -76,6 +77,7 @@ public class KhoaController {
 		safeSave();
 	}
 	
+	//* ======================= CÁC HÀM PROCESS GIẢNG VIÊN =======================
 	public static void addGiangVien(GiangVien giangVien) throws GiangVienExistException {
 		for (GiangVien item: getGiangVienList())
 			if (item.maGV.equals(giangVien.maGV))
@@ -124,6 +126,7 @@ public class KhoaController {
 		safeSave();
 	}
 
+	//* ======================= CÁC HÀM PROCESS LỚP HỌC =======================
 	public static void addLopHoc(LopHoc lopHoc) throws LopHocExistException {
 		for (LopHoc item: getLopHocList())
 			if (item.maLop.equals(lopHoc.maLop))
@@ -180,6 +183,37 @@ public class KhoaController {
 		safeSave();
 	}
 
+	//* ======================= CÁC HÀM PROCESS BÀN HỌC =======================
+	public static void addBanHoc(BanHoc banHoc) {
+		khoa.banHoc.add(banHoc);
+		safeSave();
+	}
+
+	public static ArrayList<BanHoc> getBanHocList() {
+		return khoa.banHoc;
+	}
+
+	public static void removeBanHoc(BanHoc banHoc) {
+		khoa.banHoc.remove(banHoc);
+		safeSave();
+	}
+	
+	//* ======================= CÁC HÀM PROCESS MÁY CHIẾU =======================
+	public static void addMayChieu(MayChieu mayChieu) {
+		khoa.mayChieu.add(mayChieu);
+		safeSave();
+	}
+
+	public static ArrayList<MayChieu> getMayChieuList() {
+		return khoa.mayChieu;
+	}
+
+	public static void removeMayChieu(MayChieu mayChieu) {
+		khoa.mayChieu.remove(mayChieu);
+		safeSave();
+	}
+
+	//* ======================= LƯU VÀ ĐỌC FILE =======================
 	public static void safeSave() {
 		try {
 			save();

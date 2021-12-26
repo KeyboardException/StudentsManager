@@ -15,6 +15,9 @@ public class Khoa implements Serializable {
 	public ArrayList<SinhVien> sinhVien = new ArrayList<SinhVien>();
 	public ArrayList<LopHoc> lopHoc = new ArrayList<LopHoc>();
 
+	public ArrayList<BanHoc> banHoc = new ArrayList<BanHoc>();
+	public ArrayList<MayChieu> mayChieu = new ArrayList<MayChieu>();
+
 	public Khoa() {}
 
 	@Override

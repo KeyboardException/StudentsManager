@@ -92,6 +92,17 @@
                   </VBox>
                </content>
             </Tab>
+
+            <Tab text="Bàn Học" closable="false">
+               <content>
+                  <VBox>
+                     <TableView VBox.vgrow="ALWAYS" fx:id="banHocTable">
+                     </TableView>
+
+                     <OSCButton icon="plus" color="orange" count="40" text="THÊM BÀN HỌC" onAction="#addBanHoc"></OSCButton>
+                  </VBox>
+               </content>
+            </Tab>
          </tabs>
       </TabPane>
    </children>
