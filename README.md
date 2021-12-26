@@ -1,6 +1,8 @@
 ## BTL Nhóm 07 - LTHDT
 ### Quản lí học tập của Sinh Viên Đại Học
 
+[FILE BÁO CÁO](B%C3%81O%20C%C3%81O.docx)
+
 #### Running
 
 Installing Dependencies
